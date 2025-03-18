@@ -1,0 +1,52 @@
+.feminine-card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(255, 182, 193, 0.15);
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.feminine-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(255, 182, 193, 0.25);
+}
+
+.feminine-title {
+  background: linear-gradient(120deg, #FF85A1, #FFA4C0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: inline-block;
+  position: relative;
+}
+
+.feminine-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255,182,193,0), rgba(255,182,193,1) 50%, rgba(255,182,193,0));
+}
+
+.feminine-button-gradient {
+  background: linear-gradient(135deg, #FF85A1, #FFA4C0);
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 133, 161, 0.3);
+}
+
+.feminine-button-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 133, 161, 0.4);
+}
+
+.feminine-like-button {
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.feminine-like-button:hover {
+  opacity: 1;
+  transform: scale(1.15) !important;
+} 

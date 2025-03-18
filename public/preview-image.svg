@@ -1,0 +1,107 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradient Background -->
+  <rect width="1200" height="630" rx="20" fill="url(#paint0_linear)"/>
+  
+  <!-- Background Decorations - Paw Prints -->
+  <g opacity="0.1">
+    <path d="M100 100C105 110 100 120 90 122C80 124 70 116 65 106C60 96 65 86 75 84C85 82 95 90 100 100Z" fill="white"/>
+    <path d="M140 130C145 140 140 150 130 152C120 154 110 146 105 136C100 126 105 116 115 114C125 112 135 120 140 130Z" fill="white"/>
+    <path d="M200 130C205 140 200 150 190 152C180 154 170 146 165 136C160 126 165 116 175 114C185 112 195 120 200 130Z" fill="white"/>
+    <path d="M240 100C245 110 240 120 230 122C220 124 210 116 205 106C200 96 205 86 215 84C225 82 235 90 240 100Z" fill="white"/>
+    <path d="M200 180C220 215 175 250 170 255C165 250 120 215 140 180C150 160 170 160 170 160C170 160 190 160 200 180Z" fill="white"/>
+  </g>
+  
+  <g opacity="0.1">
+    <path d="M1000 500C1005 510 1000 520 990 522C980 524 970 516 965 506C960 496 965 486 975 484C985 482 995 490 1000 500Z" fill="white"/>
+    <path d="M1040 530C1045 540 1040 550 1030 552C1020 554 1010 546 1005 536C1000 526 1005 516 1015 514C1025 512 1035 520 1040 530Z" fill="white"/>
+    <path d="M1100 530C1105 540 1100 550 1090 552C1080 554 1070 546 1065 536C1060 526 1065 516 1075 514C1085 512 1095 520 1100 530Z" fill="white"/>
+    <path d="M1140 500C1145 510 1140 520 1130 522C1120 524 1110 516 1105 506C1100 496 1105 486 1115 484C1125 482 1135 490 1140 500Z" fill="white"/>
+    <path d="M1100 580C1120 615 1075 650 1070 655C1065 650 1020 615 1040 580C1050 560 1070 560 1070 560C1070 560 1090 560 1100 580Z" fill="white"/>
+  </g>
+  
+  <!-- Dog Illustration -->
+  <g transform="translate(200, 145) scale(1.2)">
+    <!-- Dog Body -->
+    <ellipse cx="150" cy="220" rx="80" ry="60" fill="#FFD699"/>
+    <!-- Dog Head -->
+    <circle cx="150" cy="120" r="70" fill="#FFD699"/>
+    <!-- Ears -->
+    <ellipse cx="90" cy="80" rx="30" ry="35" fill="#C49A6C"/>
+    <ellipse cx="210" cy="80" rx="30" ry="35" fill="#C49A6C"/>
+    <!-- Eyes -->
+    <circle cx="125" cy="110" r="10" fill="#333333"/>
+    <circle cx="175" cy="110" r="10" fill="#333333"/>
+    <circle cx="125" cy="107" r="3" fill="white"/>
+    <circle cx="175" cy="107" r="3" fill="white"/>
+    <!-- Nose -->
+    <ellipse cx="150" cy="135" rx="15" ry="10" fill="#333333"/>
+    <!-- Mouth -->
+    <path d="M150 155C140 170 120 175 110 175M150 155C160 170 180 175 190 175" stroke="#333333" stroke-width="4" stroke-linecap="round"/>
+    <!-- Legs -->
+    <rect x="100" y="270" width="15" height="40" rx="7" fill="#FFD699"/>
+    <rect x="185" y="270" width="15" height="40" rx="7" fill="#FFD699"/>
+    <!-- Tail -->
+    <path d="M230 200C250 180 250 150 240 140" stroke="#FFD699" stroke-width="15" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Cat Illustration -->
+  <g transform="translate(620, 150) scale(1.2)">
+    <!-- Cat Body -->
+    <ellipse cx="150" cy="220" rx="70" ry="50" fill="#9E9E9E"/>
+    <!-- Cat Head -->
+    <circle cx="150" cy="120" r="65" fill="#9E9E9E"/>
+    <!-- Ears -->
+    <path d="M100 65L110 85L90 90L100 65Z" fill="#BDBDBD"/>
+    <path d="M200 65L210 85L190 90L200 65Z" fill="#BDBDBD"/>
+    <!-- Eyes -->
+    <ellipse cx="125" cy="115" rx="10" ry="18" fill="#333333"/>
+    <ellipse cx="175" cy="115" rx="10" ry="18" fill="#333333"/>
+    <ellipse cx="125" cy="110" rx="3" ry="5" fill="#66BB6A"/>
+    <ellipse cx="175" cy="110" rx="3" ry="5" fill="#66BB6A"/>
+    <!-- Nose -->
+    <path d="M145 135L150 140L155 135L150 130L145 135Z" fill="#FFCCBC"/>
+    <!-- Whiskers -->
+    <path d="M115 145C115 145 85 135 65 140M115 150C115 150 85 155 70 170M185 145C185 145 215 135 235 140M185 150C185 150 215 155 230 170" stroke="#BDBDBD" stroke-width="2" stroke-linecap="round"/>
+    <!-- Legs -->
+    <rect x="115" y="260" width="15" height="35" rx="7" fill="#9E9E9E"/>
+    <rect x="170" y="260" width="15" height="35" rx="7" fill="#9E9E9E"/>
+    <!-- Tail -->
+    <path d="M220 210C240 210 255 180 250 160" stroke="#9E9E9E" stroke-width="15" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Logo -->
+  <g transform="translate(480, 50)">
+    <!-- Paw Icon -->
+    <g transform="scale(0.8)">
+      <circle cx="60" cy="60" r="40" fill="#FF86A5"/>
+      <circle cx="30" cy="30" r="15" fill="#FF86A5"/>
+      <circle cx="90" cy="30" r="15" fill="#FF86A5"/>
+      <circle cx="20" cy="70" r="15" fill="#FF86A5"/>
+      <circle cx="100" cy="70" r="15" fill="#FF86A5"/>
+    </g>
+    
+    <!-- Logo Text -->
+    <text x="120" y="70" font-family="'Playfair Display', serif" font-size="60" font-weight="700" fill="white">
+      Cilis Pet
+    </text>
+  </g>
+  
+  <!-- Slogan -->
+  <text x="600" y="480" font-family="'Dancing Script', cursive" font-size="60" font-weight="700" fill="white" text-anchor="middle">
+    Companion for Life
+  </text>
+  
+  <!-- Call to Action -->
+  <rect x="450" y="520" width="300" height="60" rx="30" fill="white" fill-opacity="0.2" stroke="white" stroke-width="2"/>
+  <text x="600" y="560" font-family="'Montserrat', sans-serif" font-size="24" font-weight="600" fill="white" text-anchor="middle">
+    Tìm người bạn mới ngay hôm nay!
+  </text>
+  
+  <!-- Gradient Definitions -->
+  <defs>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF86A5"/>
+      <stop offset="100%" stop-color="#A084DC"/>
+    </linearGradient>
+  </defs>
+</svg> 

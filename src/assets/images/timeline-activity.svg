@@ -1,0 +1,44 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#F0FFF4" />
+  
+  <!-- Grid pattern -->
+  <path d="M0 50H400" stroke="#C7F3D6" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M0 100H400" stroke="#C7F3D6" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M0 150H400" stroke="#C7F3D6" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M0 200H400" stroke="#C7F3D6" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M0 250H400" stroke="#C7F3D6" stroke-width="1" stroke-dasharray="4 4" />
+  
+  <path d="M50 0V300" stroke="#C7F3D6" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M100 0V300" stroke="#C7F3D6" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M150 0V300" stroke="#C7F3D6" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M200 0V300" stroke="#C7F3D6" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M250 0V300" stroke="#C7F3D6" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M300 0V300" stroke="#C7F3D6" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M350 0V300" stroke="#C7F3D6" stroke-width="1" stroke-dasharray="4 4" />
+  
+  <!-- Ball -->
+  <circle cx="160" cy="130" r="35" fill="#5CDB95" />
+  <path d="M160 95C160 95 130 110 130 130C130 150 160 165 160 165" stroke="white" stroke-width="3" stroke-linecap="round" />
+  <path d="M160 95C160 95 190 110 190 130C190 150 160 165 160 165" stroke="white" stroke-width="3" stroke-linecap="round" />
+  <path d="M135 115H185" stroke="white" stroke-width="3" stroke-linecap="round" />
+  <path d="M135 145H185" stroke="white" stroke-width="3" stroke-linecap="round" />
+  
+  <!-- Dog silhouette -->
+  <path d="M275 100C275 100 285 90 295 100C305 110 305 120 305 130C305 140 300 150 290 155C280 160 270 155 265 150C260 145 255 135 255 125C255 115 260 105 275 100Z" fill="#4DAA77" />
+  <circle cx="270" cy="110" r="3" fill="white" />
+  <path d="M250 135C250 135 265 140 265 150" stroke="#4DAA77" stroke-width="8" stroke-linecap="round" />
+  <path d="M230 125C230 125 245 135 250 135" stroke="#4DAA77" stroke-width="8" stroke-linecap="round" />
+  <path d="M235 150C235 150 245 145 250 150C255 155 255 165 250 170" stroke="#4DAA77" stroke-width="8" stroke-linecap="round" />
+  <path d="M290 155C290 155 295 165 290 175" stroke="#4DAA77" stroke-width="8" stroke-linecap="round" />
+  <path d="M305 130L320 125" stroke="#4DAA77" stroke-width="5" stroke-linecap="round" />
+  
+  <!-- Motion lines -->
+  <path d="M120 95C120 95 110 85 100 90" stroke="#4DAA77" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 4" />
+  <path d="M120 165C120 165 110 175 100 170" stroke="#4DAA77" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 4" />
+  <path d="M320 145C320 145 330 155 340 150" stroke="#4DAA77" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 4" />
+  
+  <!-- Text -->
+  <text x="200" y="220" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#2E8B57">Hình ảnh hoạt động vui chơi</text>
+  <text x="200" y="245" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#2E8B57">Đang cập nhật hình ảnh về các hoạt động thú vị</text>
+</svg> 

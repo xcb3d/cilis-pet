@@ -1,0 +1,32 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#FFF9E6" />
+  
+  <!-- Grid pattern -->
+  <path d="M0 50H400" stroke="#FFECC0" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M0 100H400" stroke="#FFECC0" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M0 150H400" stroke="#FFECC0" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M0 200H400" stroke="#FFECC0" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M0 250H400" stroke="#FFECC0" stroke-width="1" stroke-dasharray="4 4" />
+  
+  <path d="M50 0V300" stroke="#FFECC0" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M100 0V300" stroke="#FFECC0" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M150 0V300" stroke="#FFECC0" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M200 0V300" stroke="#FFECC0" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M250 0V300" stroke="#FFECC0" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M300 0V300" stroke="#FFECC0" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M350 0V300" stroke="#FFECC0" stroke-width="1" stroke-dasharray="4 4" />
+  
+  <!-- Training cap -->
+  <path d="M150 130H250L270 150H130L150 130Z" fill="#FFD54F" />
+  <rect x="185" y="90" width="30" height="40" fill="#FFD54F" />
+  <path d="M160 150H240V160C240 171.046 231.046 180 220 180H180C168.954 180 160 171.046 160 160V150Z" fill="#FFD54F" />
+  
+  <!-- Tassel -->
+  <path d="M215 90C215 90 210 110 230 115" stroke="#FFC107" stroke-width="3" />
+  <circle cx="230" cy="115" r="5" fill="#FFC107" />
+  
+  <!-- Text -->
+  <text x="200" y="220" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#F19E38">Hình ảnh huấn luyện</text>
+  <text x="200" y="245" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#F19E38">Đang cập nhật hình ảnh về quá trình huấn luyện</text>
+</svg> 

@@ -1,0 +1,944 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Global styles */
+body {
+  padding-top: env(safe-area-inset-top, 0);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Page Transition Effects */
+.page-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+}
+
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms ease-in-out, transform 300ms ease-out;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 250ms ease-in, transform 250ms ease-in;
+}
+
+/* Fix z-index issues */
+.z-header {
+  z-index: 1000;
+}
+
+/* Fix button styles */
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Fix for Safari mobile */
+@supports (-webkit-touch-callout: none) {
+  .fixed-nav {
+    position: -webkit-sticky;
+    backdrop-filter: blur(8px);
+  }
+}
+
+/* Animation styles for PetCard */
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8) rotate(-5deg);
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.1) rotate(5deg);
+    opacity: 0.8;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9) rotate(-5deg);
+  }
+}
+
+.floating-emoji {
+  position: absolute;
+  font-size: 24px;
+  pointer-events: none;
+  animation: floatUp 2s ease-in-out forwards;
+  z-index: 50;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  will-change: transform, opacity;
+  user-select: none;
+}
+
+/* New enhanced animations and decorative elements */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  animation: shimmer 3s infinite linear;
+}
+
+@keyframes shimmer {
+  from {
+    transform: rotate(30deg) translateX(-100%);
+  }
+  to {
+    transform: rotate(30deg) translateX(100%);
+  }
+}
+
+/* Bouncing heart animation */
+@keyframes heartBounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.1);
+  }
+}
+
+.heart-bounce {
+  animation: heartBounce 2s ease-in-out infinite;
+}
+
+/* Soft hover effect for cards */
+.soft-hover {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.soft-hover:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 15px 30px rgba(255, 182, 193, 0.15);
+}
+
+/* Sparkling stars effect */
+.sparkle-container {
+  position: relative;
+}
+
+.sparkle-star {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='%23FFD1DC'%3E%3Cpath d='M12 0L14.59 8.26L23.41 9.24L17.05 15.45L18.56 24L12 19.78L5.44 24L6.95 15.45L0.59 9.24L9.41 8.26L12 0Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  animation: sparkleRotate 3s linear infinite, sparkleOpacity 3s ease-in-out infinite;
+}
+
+@keyframes sparkleRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sparkleOpacity {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Pulsing glow effect */
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 182, 193, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 182, 193, 0.6);
+  }
+}
+
+/* Wavy border animation */
+.wavy-border {
+  position: relative;
+}
+
+.wavy-border::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, 
+    #FFD1DC 0%, #FFB6C1 20%, 
+    #E6E6FA 40%, #D1C4E9 60%, 
+    #C9F7E7 80%, #A5E1D2 100%);
+  border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+  animation: waveBorder 3s ease-in-out infinite;
+}
+
+@keyframes waveBorder {
+  0%, 100% {
+    transform: scaleX(0.8);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+}
+
+/* Wiggle animation */
+.wiggle-hover:hover {
+  animation: wiggle 0.8s ease-in-out;
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20% {
+    transform: rotate(8deg);
+  }
+  40% {
+    transform: rotate(-8deg);
+  }
+  60% {
+    transform: rotate(4deg);
+  }
+  80% {
+    transform: rotate(-4deg);
+  }
+}
+
+/* Paw cursor */
+.paw-cursor {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23FFB6C1"><path d="M6 12c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm12 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-6 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-6 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm12 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-6-12c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>') 16 16, auto;
+}
+
+/* Heart trail effect */
+.heart-trail {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  animation: heartFade 1s ease-out forwards;
+  transform-origin: center;
+}
+
+@keyframes heartFade {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8) translateY(30px);
+  }
+}
+
+/* Confetti button effect */
+.confetti-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #FFD1DC;
+  top: 0;
+  opacity: 0;
+}
+
+.confetti-button:hover .confetti-piece {
+  animation: confettiFall 1s ease-in-out forwards;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Pet images hover effect */
+.pet-image-hover {
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+}
+
+.pet-image-hover img {
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pet-image-hover:hover img {
+  transform: scale(1.08);
+}
+
+/* Subtle background animations */
+.bg-animate {
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Paw print trail */
+.paw-print {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%23FFB6C1' opacity='0.6'%3E%3Cpath d='M23.3333 16.6667C23.3333 20.3486 20.3486 23.3333 16.6667 23.3333C12.9848 23.3333 10 20.3486 10 16.6667C10 12.9848 12.9848 10 16.6667 10C20.3486 10 23.3333 12.9848 23.3333 16.6667Z'/%3E%3Cpath d='M43.3333 23.3333C43.3333 27.0152 40.3486 30 36.6667 30C32.9848 30 30 27.0152 30 23.3333C30 19.6514 32.9848 16.6667 36.6667 16.6667C40.3486 16.6667 43.3333 19.6514 43.3333 23.3333Z'/%3E%3Cpath d='M70 23.3333C70 27.0152 67.0152 30 63.3333 30C59.6514 30 56.6667 27.0152 56.6667 23.3333C56.6667 19.6514 59.6514 16.6667 63.3333 16.6667C67.0152 16.6667 70 19.6514 70 23.3333Z'/%3E%3Cpath d='M90 16.6667C90 20.3486 87.0152 23.3333 83.3333 23.3333C79.6514 23.3333 76.6667 20.3486 76.6667 16.6667C76.6667 12.9848 79.6514 10 83.3333 10C87.0152 10 90 12.9848 90 16.6667Z'/%3E%3Cpath d='M73.3333 50C73.3333 61.0457 64.3791 70 53.3333 70C42.2876 70 33.3333 61.0457 33.3333 50C33.3333 38.9543 42.2876 30 53.3333 30C64.3791 30 73.3333 38.9543 73.3333 50Z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  opacity: 0;
+  animation: pawFade 2s forwards;
+}
+
+@keyframes pawFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  20% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+/* Cursor effects */
+.paw-cursor {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23FFB6C1"><path d="M6 12c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm12 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-6 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-6 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm12 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-6-12c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>') 16 16, auto;
+}
+
+/* Hover effect animations for custom cursors */
+.cursor-heart-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 5;
+  position: relative;
+}
+
+.cursor-heart-hover:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 15px rgba(255, 134, 165, 0.3);
+}
+
+.cursor-heart-hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(255,134,165,0.1) 0%, rgba(255,134,165,0) 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.cursor-heart-hover:hover::after {
+  opacity: 1;
+}
+
+.cursor-paw-hover {
+  transition: transform 0.3s ease;
+}
+
+.cursor-paw-hover:hover {
+  transform: translateY(-2px);
+}
+
+.cursor-paw-hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 182, 193, 0.05);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.cursor-paw-hover:hover::before {
+  opacity: 1;
+}
+
+.cursor-cat-hover {
+  transition: all 0.3s ease;
+}
+
+.cursor-cat-hover:hover {
+  transform: rotate(-1deg) scale(1.02);
+}
+
+.cursor-sparkle-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.cursor-sparkle-hover::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,215,0,0.4) 0%, rgba(255,215,0,0) 70%);
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.cursor-sparkle-hover:hover::before {
+  animation: pulse 2s infinite;
+  transform: scale(1.5);
+}
+
+/* Cinemagraph Effects */
+.cinemagraph-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.cinemagraph-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cinemagraph {
+  transition: transform 0.5s ease-in-out;
+  transform-origin: center center;
+}
+
+.cinemagraph-zoom {
+  animation: cinemagraphZoom 15s infinite alternate ease-in-out;
+}
+
+.cinemagraph-pan {
+  animation: cinemagraphPan 25s infinite alternate ease-in-out;
+}
+
+.cinemagraph-breathe {
+  animation: cinemagraphBreathe 8s infinite ease-in-out;
+}
+
+.cinemagraph-shimmer {
+  animation: none;
+}
+
+.cinemagraph-shimmer + .cinemagraph-overlay {
+  animation: cinemagraphShimmer 5s infinite linear;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 25%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0.1) 75%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 200%;
+}
+
+@keyframes cinemagraphZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes cinemagraphPan {
+  0% {
+    transform: translateX(0) scale(1.05);
+  }
+  50% {
+    transform: translateX(-2%) scale(1.05);
+  }
+  100% {
+    transform: translateX(2%) scale(1.05);
+  }
+}
+
+@keyframes cinemagraphBreathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes cinemagraphShimmer {
+  0% {
+    background-position: -200% -200%;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
+
+/* Custom Stickers */
+.sticker-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.floating-sticker {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  cursor: grab;
+  animation: stickerFloat 30s infinite alternate ease-in-out;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  font-size: 24px;
+  user-select: none;
+  z-index: 1001;
+  transition: transform 0.2s ease;
+}
+
+.floating-sticker:hover {
+  transform: scale(1.2);
+}
+
+.sticker-dragging {
+  cursor: grabbing;
+}
+
+.sticker-paw {
+  animation: stickerPawFloat 30s infinite alternate ease-in-out;
+}
+
+.sticker-heart {
+  animation: stickerHeartFloat 35s infinite alternate ease-in-out;
+}
+
+.sticker-cat {
+  animation: stickerCatFloat 40s infinite alternate ease-in-out;
+}
+
+.sticker-dog {
+  animation: stickerDogFloat 25s infinite alternate ease-in-out;
+}
+
+.sticker-bone,
+.sticker-fish,
+.sticker-house {
+  animation: stickerGenericFloat 45s infinite alternate ease-in-out;
+}
+
+.sticker-svg-paw path,
+.sticker-svg-heart path {
+  fill: #FFB6C1;
+  filter: drop-shadow(0 0 2px rgba(255, 182, 193, 0.5));
+}
+
+@keyframes stickerFloat {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(20px, 15px) rotate(5deg);
+  }
+  50% {
+    transform: translate(-10px, 30px) rotate(-3deg);
+  }
+  75% {
+    transform: translate(-25px, 10px) rotate(8deg);
+  }
+  100% {
+    transform: translate(15px, -20px) rotate(-5deg);
+  }
+}
+
+@keyframes stickerPawFloat {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, 25px) rotate(15deg);
+  }
+  66% {
+    transform: translate(-25px, 10px) rotate(-10deg);
+  }
+  100% {
+    transform: translate(15px, -30px) rotate(5deg);
+  }
+}
+
+@keyframes stickerHeartFloat {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(-20px, 20px) rotate(-5deg) scale(1.1);
+  }
+  100% {
+    transform: translate(20px, -10px) rotate(5deg) scale(1);
+  }
+}
+
+@keyframes stickerCatFloat {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(15px, 10px) rotate(8deg);
+  }
+  50% {
+    transform: translate(5px, 30px) rotate(-8deg);
+  }
+  75% {
+    transform: translate(-20px, 15px) rotate(12deg);
+  }
+  100% {
+    transform: translate(-5px, -25px) rotate(-5deg);
+  }
+}
+
+@keyframes stickerDogFloat {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(-25px, 15px) rotate(10deg) scale(1.2);
+  }
+  100% {
+    transform: translate(25px, -15px) rotate(-10deg) scale(1);
+  }
+}
+
+@keyframes stickerGenericFloat {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(10px, 10px) rotate(5deg);
+  }
+  50% {
+    transform: translate(20px, -5px) rotate(10deg);
+  }
+  75% {
+    transform: translate(-10px, -15px) rotate(-5deg);
+  }
+  100% {
+    transform: translate(-20px, 5px) rotate(-10deg);
+  }
+}
+
+/* Seasonal Weather Effects */
+.weather-effect-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.weather-particle {
+  position: absolute;
+  z-index: 999;
+  user-select: none;
+  pointer-events: none;
+  animation: weatherFall 20s linear forwards;
+}
+
+.weather-petal {
+  opacity: 0.9;
+  transform-origin: center center;
+  animation: weatherFall 10s linear forwards, weatherSpin 6s linear infinite;
+}
+
+.weather-leaf {
+  opacity: 0.9;
+  transform-origin: center center;
+  animation: weatherFall 15s linear forwards, weatherSway 3s ease-in-out infinite alternate;
+}
+
+.weather-butterfly {
+  opacity: 0.9;
+  transform-origin: center center;
+  animation: weatherFly 30s linear forwards, weatherButterfly 0.8s ease-in-out infinite alternate;
+}
+
+.weather-snow {
+  opacity: 0.9;
+  transform-origin: center center;
+  animation: weatherFall 20s linear forwards, weatherSway 4s ease-in-out infinite alternate;
+}
+
+@keyframes weatherFall {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes weatherSway {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(50px) rotate(15deg);
+  }
+  100% {
+    transform: translateX(-50px) rotate(-15deg);
+  }
+}
+
+@keyframes weatherSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes weatherFly {
+  0% {
+    transform: translate(0, -50px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  30% {
+    transform: translate(50px, 30vh);
+  }
+  50% {
+    transform: translate(-30px, 50vh);
+  }
+  70% {
+    transform: translate(20px, 70vh);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-10px, 100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes weatherButterfly {
+  0% {
+    transform: translateX(0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateX(5px) rotate(5deg) scale(1.1);
+  }
+  100% {
+    transform: translateX(-5px) rotate(-5deg) scale(1);
+  }
+}
+
+/* Seasonal Background Effects */
+.spring-bg {
+  background-color: #FEF2F7;
+  background-image: linear-gradient(120deg, #FEF2F7 0%, #F8FFEE 100%);
+  transition: background-color 1.5s ease, background-image 1.5s ease;
+}
+
+.summer-bg {
+  background-color: #FFF9E6;
+  background-image: linear-gradient(120deg, #FFF9E6 0%, #FFEFBA 100%);
+  transition: background-color 1.5s ease, background-image 1.5s ease;
+}
+
+.fall-bg {
+  background-color: #FFF1E6;
+  background-image: linear-gradient(120deg, #FFF1E6 0%, #FFE4CC 100%);
+  transition: background-color 1.5s ease, background-image 1.5s ease;
+}
+
+.winter-bg {
+  background-color: #F0F8FF;
+  background-image: linear-gradient(120deg, #F0F8FF 0%, #E6F0FF 100%);
+  transition: background-color 1.5s ease, background-image 1.5s ease;
+}
+
+/* Season Toggle UI */
+.season-toggle {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.season-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.season-btn:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 15px rgba(255, 182, 193, 0.5);
+}
+
+.season-btn.active {
+  border-color: #FFB6C1;
+  box-shadow: 0 0 10px rgba(255, 182, 193, 0.8);
+}
+
+.spring-btn {
+  background-color: rgba(255, 222, 235, 0.3);
+}
+
+.summer-btn {
+  background-color: rgba(255, 240, 177, 0.3);
+}
+
+.fall-btn {
+  background-color: rgba(255, 214, 177, 0.3);
+}
+
+.winter-btn {
+  background-color: rgba(224, 240, 255, 0.3);
+}

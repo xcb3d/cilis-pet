@@ -1,0 +1,32 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#FFF5F8" />
+  
+  <!-- Grid pattern -->
+  <path d="M0 50H400" stroke="#FFD6E5" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M0 100H400" stroke="#FFD6E5" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M0 150H400" stroke="#FFD6E5" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M0 200H400" stroke="#FFD6E5" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M0 250H400" stroke="#FFD6E5" stroke-width="1" stroke-dasharray="4 4" />
+  
+  <path d="M50 0V300" stroke="#FFD6E5" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M100 0V300" stroke="#FFD6E5" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M150 0V300" stroke="#FFD6E5" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M200 0V300" stroke="#FFD6E5" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M250 0V300" stroke="#FFD6E5" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M300 0V300" stroke="#FFD6E5" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M350 0V300" stroke="#FFD6E5" stroke-width="1" stroke-dasharray="4 4" />
+  
+  <!-- Paw print icon -->
+  <circle cx="200" cy="130" r="50" fill="#FFD6E5" />
+  
+  <circle cx="175" cy="105" r="12" fill="#FF9FBF" />
+  <circle cx="225" cy="105" r="12" fill="#FF9FBF" />
+  <circle cx="160" cy="130" r="12" fill="#FF9FBF" />
+  <circle cx="240" cy="130" r="12" fill="#FF9FBF" />
+  <circle cx="200" cy="160" r="25" fill="#FF9FBF" />
+  
+  <!-- Text -->
+  <text x="200" y="220" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#FF6B98">Hình ảnh đang được cập nhật</text>
+  <text x="200" y="245" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#FF88AD">Chúng tôi sẽ sớm cập nhật hình ảnh cho câu chuyện này</text>
+</svg> 

@@ -1,0 +1,92 @@
+.event-card {
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.event-card-image-container {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.event-card-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.event-card:hover .event-card-image {
+  transform: scale(1.05);
+}
+
+.event-card-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 1rem;
+  height: 250px;
+}
+
+.event-card-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.event-card-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 60px;
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+}
+
+/* Ensure all cards in a grid are the same height */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.events-grid .event-card {
+  height: 450px;
+}
+
+/* Container for all content below the image */
+.event-card-inner {
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  padding: 1rem;
+}
+
+/* Make sure the metadata section has fixed height */
+.event-card-meta {
+  margin-bottom: 0.75rem;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+/* Footer section with button always at bottom */
+.event-card-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  flex-shrink: 0;
+} 

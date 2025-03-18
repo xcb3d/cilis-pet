@@ -1,0 +1,59 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#F1F9FF" />
+  
+  <!-- Dog -->
+  <ellipse cx="200" cy="200" rx="60" ry="40" fill="#FFD699" /> <!-- Body -->
+  <circle cx="220" cy="150" r="35" fill="#FFD699" /> <!-- Head -->
+  <circle cx="210" cy="140" r="5" fill="#333333" /> <!-- Left eye -->
+  <circle cx="230" cy="140" r="5" fill="#333333" /> <!-- Right eye -->
+  <ellipse cx="220" cy="155" rx="6" ry="4" fill="#333333" /> <!-- Nose -->
+  <path d="M220 160C220 160 210 170 230 170" stroke="#333333" stroke-width="2" /> <!-- Mouth (happy) -->
+  <path d="M190 120L200 140H180L190 120Z" fill="#C49A6C" /> <!-- Left ear -->
+  <path d="M250 120L260 140H240L250 120Z" fill="#C49A6C" /> <!-- Right ear -->
+  
+  <!-- Tail (wagging) -->
+  <path d="M140 190C130 170 110 180 100 160" stroke="#FFD699" stroke-width="15" stroke-linecap="round" />
+  
+  <!-- Paw print -->
+  <g transform="translate(300, 200)">
+    <circle cx="0" cy="0" r="8" fill="#C49A6C" />
+    <circle cx="-12" cy="10" r="5" fill="#C49A6C" />
+    <circle cx="12" cy="10" r="5" fill="#C49A6C" />
+    <circle cx="-8" cy="20" r="5" fill="#C49A6C" />
+    <circle cx="8" cy="20" r="5" fill="#C49A6C" />
+  </g>
+  
+  <!-- Puzzle toys -->
+  <rect x="260" cy="70" width="40" height="40" rx="5" fill="#64B5F6" stroke="#1E88E5" stroke-width="2"/>
+  <circle cx="270" cy="80" r="5" fill="#FFFFFF" />
+  <circle cx="290" cy="80" r="5" fill="#FFFFFF" />
+  <circle cx="270" cy="100" r="5" fill="#FFFFFF" />
+  <circle cx="290" cy="100" r="5" fill="#FFFFFF" />
+  
+  <!-- Treats puzzle -->
+  <circle cx="100" cy="100" r="30" fill="#FFB74D" stroke="#FB8C00" stroke-width="2"/>
+  <circle cx="100" cy="100" r="20" fill="#FFFFFF" stroke="#FB8C00" stroke-width="2"/>
+  <circle cx="100" cy="100" r="10" fill="#FB8C00" />
+  <path d="M90 80L90 70" stroke="#FB8C00" stroke-width="2"/>
+  <path d="M110 80L110 70" stroke="#FB8C00" stroke-width="2"/>
+  <path d="M80 90L70 90" stroke="#FB8C00" stroke-width="2"/>
+  <path d="M120 90L130 90" stroke="#FB8C00" stroke-width="2"/>
+  <path d="M90 120L90 130" stroke="#FB8C00" stroke-width="2"/>
+  <path d="M110 120L110 130" stroke="#FB8C00" stroke-width="2"/>
+  <path d="M80 110L70 110" stroke="#FB8C00" stroke-width="2"/>
+  <path d="M120 110L130 110" stroke="#FB8C00" stroke-width="2"/>
+  
+  <!-- Thinking bubbles -->
+  <circle cx="260" cy="140" r="10" fill="#E1F5FE" stroke="#81D4FA" stroke-width="1.5"/>
+  <circle cx="280" cy="130" r="15" fill="#E1F5FE" stroke="#81D4FA" stroke-width="1.5"/>
+  <circle cx="305" cy="120" r="20" fill="#E1F5FE" stroke="#81D4FA" stroke-width="1.5"/>
+  
+  <!-- Question mark inside bubble -->
+  <path d="M305 115C305 110 310 110 310 112C310 115 306 116 306 118M306 125V125.5" stroke="#29B6F6" stroke-width="2.5" stroke-linecap="round"/>
+  
+  <!-- Stars (representing ideas) -->
+  <path d="M60 60L65 50L70 60L80 65L70 70L65 80L60 70L50 65L60 60Z" fill="#FFD54F" />
+  <path d="M330 50L335 40L340 50L350 55L340 60L335 70L330 60L320 55L330 50Z" fill="#FFD54F" />
+  <path d="M180 30L185 20L190 30L200 35L190 40L185 50L180 40L170 35L180 30Z" fill="#FFD54F" />
+</svg> 

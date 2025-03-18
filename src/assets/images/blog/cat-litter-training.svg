@@ -1,0 +1,58 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#F2F7FF" />
+  
+  <!-- Litter Box -->
+  <rect x="50" y="200" width="300" height="80" rx="10" fill="#9370DB" stroke="#8A63D2" stroke-width="3"/>
+  <rect x="60" y="190" width="280" height="80" rx="8" fill="#A389E3" stroke="#8A63D2" stroke-width="2"/>
+  <rect x="70" y="180" width="260" height="80" rx="6" fill="#FFFFFF" stroke="#8A63D2" stroke-width="2"/>
+  
+  <!-- Cat Litter -->
+  <path d="M80 230 H320 V250 C320 255 315 260 310 260 H90 C85 260 80 255 80 250 V230" fill="#F0E8C0"/>
+  <circle cx="150" cy="240" r="3" fill="#DECA8F" />
+  <circle cx="200" cy="245" r="3" fill="#DECA8F" />
+  <circle cx="250" cy="240" r="3" fill="#DECA8F" />
+  <circle cx="120" cy="250" r="3" fill="#DECA8F" />
+  <circle cx="180" cy="250" r="3" fill="#DECA8F" />
+  <circle cx="230" cy="250" r="3" fill="#DECA8F" />
+  <circle cx="280" cy="250" r="3" fill="#DECA8F" />
+  
+  <!-- Cat -->
+  <ellipse cx="200" cy="130" rx="50" ry="30" fill="#9E9E9E" /> <!-- Body -->
+  <circle cx="200" cy="90" r="25" fill="#9E9E9E" /> <!-- Head -->
+  
+  <!-- Cat Face -->
+  <path d="M170 80L180 95H165L170 80Z" fill="#BDBDBD"/> <!-- Left ear -->
+  <path d="M230 80L240 95H225L230 80Z" fill="#BDBDBD"/> <!-- Right ear -->
+  <ellipse cx="190" cy="90" rx="4" ry="7" fill="#333333" /> <!-- Left eye -->
+  <ellipse cx="210" cy="90" rx="4" ry="7" fill="#333333" /> <!-- Right eye -->
+  <path d="M197 98L200 100L203 98L200 96L197 98Z" fill="#FFCCBC" /> <!-- Nose -->
+  
+  <!-- Whiskers -->
+  <path d="M190 105C190 105 170 100 155 105M190 110C190 110 170 110 160 115" stroke="#BDBDBD" stroke-width="1.5" />
+  <path d="M210 105C210 105 230 100 245 105M210 110C210 110 230 110 240 115" stroke="#BDBDBD" stroke-width="1.5" />
+  
+  <!-- Paws -->
+  <ellipse cx="165" cy="150" rx="8" ry="5" fill="#8E8E8E" />
+  <ellipse cx="235" cy="150" rx="8" ry="5" fill="#8E8E8E" />
+  
+  <!-- Tail -->
+  <path d="M250 130C260 120 280 120 290 90" stroke="#9E9E9E" stroke-width="10" stroke-linecap="round" />
+  
+  <!-- Paw Prints -->
+  <g transform="translate(200, 180) rotate(30)">
+    <circle cx="0" cy="0" r="5" fill="#8E8E8E" opacity="0.8" />
+    <circle cx="-8" cy="7" r="3" fill="#8E8E8E" opacity="0.8" />
+    <circle cx="8" cy="7" r="3" fill="#8E8E8E" opacity="0.8" />
+    <circle cx="-5" cy="14" r="3" fill="#8E8E8E" opacity="0.8" />
+    <circle cx="5" cy="14" r="3" fill="#8E8E8E" opacity="0.8" />
+  </g>
+  
+  <g transform="translate(150, 190) rotate(-20)">
+    <circle cx="0" cy="0" r="5" fill="#8E8E8E" opacity="0.8" />
+    <circle cx="-8" cy="7" r="3" fill="#8E8E8E" opacity="0.8" />
+    <circle cx="8" cy="7" r="3" fill="#8E8E8E" opacity="0.8" />
+    <circle cx="-5" cy="14" r="3" fill="#8E8E8E" opacity="0.8" />
+    <circle cx="5" cy="14" r="3" fill="#8E8E8E" opacity="0.8" />
+  </g>
+</svg> 

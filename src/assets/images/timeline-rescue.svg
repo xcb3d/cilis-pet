@@ -1,0 +1,30 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#FFECEF" />
+  
+  <!-- Grid pattern -->
+  <path d="M0 50H400" stroke="#FFCCD5" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M0 100H400" stroke="#FFCCD5" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M0 150H400" stroke="#FFCCD5" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M0 200H400" stroke="#FFCCD5" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M0 250H400" stroke="#FFCCD5" stroke-width="1" stroke-dasharray="4 4" />
+  
+  <path d="M50 0V300" stroke="#FFCCD5" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M100 0V300" stroke="#FFCCD5" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M150 0V300" stroke="#FFCCD5" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M200 0V300" stroke="#FFCCD5" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M250 0V300" stroke="#FFCCD5" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M300 0V300" stroke="#FFCCD5" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M350 0V300" stroke="#FFCCD5" stroke-width="1" stroke-dasharray="4 4" />
+  
+  <!-- Heart -->
+  <path d="M200 180C200 180 170 150 140 150C110 150 100 180 100 200C100 250 200 270 200 270C200 270 300 250 300 200C300 180 290 150 260 150C230 150 200 180 200 180Z" fill="#FF6B8B" />
+  
+  <!-- Hands -->
+  <path d="M160 190C160 190 140 170 130 180C120 190 130 210 140 220" stroke="white" stroke-width="5" stroke-linecap="round" />
+  <path d="M240 190C240 190 260 170 270 180C280 190 270 210 260 220" stroke="white" stroke-width="5" stroke-linecap="round" />
+  
+  <!-- Text -->
+  <text x="200" y="220" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">Hình ảnh giải cứu</text>
+  <text x="200" y="245" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">Đang cập nhật hình ảnh về quá trình giải cứu</text>
+</svg> 

@@ -1,0 +1,21 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Head -->
+  <circle cx="100" cy="80" r="50" fill="#9E9E9E"/>
+  <!-- Ears -->
+  <path d="M60 40L70 60L50 60L60 40Z" fill="#BDBDBD"/>
+  <path d="M140 40L150 60L130 60L140 40Z" fill="#BDBDBD"/>
+  <!-- Eyes -->
+  <ellipse cx="80" cy="75" rx="8" ry="15" fill="#333333"/>
+  <ellipse cx="120" cy="75" rx="8" ry="15" fill="#333333"/>
+  <!-- Nose -->
+  <path d="M95 95L100 100L105 95L100 90L95 95Z" fill="#FFCCBC"/>
+  <!-- Whiskers -->
+  <path d="M85 100C85 100 65 95 45 100M85 105C85 105 65 105 50 115M115 100C115 100 135 95 155 100M115 105C115 105 135 105 150 115" stroke="#BDBDBD" stroke-width="2" stroke-linecap="round"/>
+  <!-- Body -->
+  <ellipse cx="100" cy="140" rx="35" ry="25" fill="#9E9E9E"/>
+  <!-- Legs -->
+  <rect x="75" y="160" width="10" height="25" rx="5" fill="#9E9E9E"/>
+  <rect x="115" y="160" width="10" height="25" rx="5" fill="#9E9E9E"/>
+  <!-- Tail -->
+  <path d="M135 140C135 140 170 145 175 110" stroke="#9E9E9E" stroke-width="10" stroke-linecap="round"/>
+</svg> 

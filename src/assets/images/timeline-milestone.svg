@@ -1,0 +1,46 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#F6F0FF" />
+  
+  <!-- Grid pattern -->
+  <path d="M0 50H400" stroke="#E3D2FF" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M0 100H400" stroke="#E3D2FF" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M0 150H400" stroke="#E3D2FF" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M0 200H400" stroke="#E3D2FF" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M0 250H400" stroke="#E3D2FF" stroke-width="1" stroke-dasharray="4 4" />
+  
+  <path d="M50 0V300" stroke="#E3D2FF" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M100 0V300" stroke="#E3D2FF" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M150 0V300" stroke="#E3D2FF" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M200 0V300" stroke="#E3D2FF" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M250 0V300" stroke="#E3D2FF" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M300 0V300" stroke="#E3D2FF" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M350 0V300" stroke="#E3D2FF" stroke-width="1" stroke-dasharray="4 4" />
+  
+  <!-- Trophy -->
+  <path d="M170 90H230V130H170V90Z" fill="#B388FF" />
+  <path d="M185 130H215V160H185V130Z" fill="#B388FF" />
+  <rect x="150" y="80" width="100" height="15" rx="5" fill="#9575CD" />
+  <rect x="170" y="160" width="60" height="10" rx="5" fill="#9575CD" />
+  
+  <!-- Cup handles -->
+  <path d="M170 110C170 110 150 110 150 130" stroke="#9575CD" stroke-width="10" stroke-linecap="round" />
+  <path d="M230 110C230 110 250 110 250 130" stroke="#9575CD" stroke-width="10" stroke-linecap="round" />
+  
+  <!-- Stars on trophy -->
+  <path d="M185 100L187 107L195 107L188 111L190 118L185 114L180 118L182 111L175 107L183 107L185 100Z" fill="white" />
+  <path d="M200 105L202 112L210 112L203 116L205 123L200 119L195 123L197 116L190 112L198 112L200 105Z" fill="white" />
+  <path d="M215 100L217 107L225 107L218 111L220 118L215 114L210 118L212 111L205 107L213 107L215 100Z" fill="white" />
+  
+  <!-- Confetti -->
+  <circle cx="130" cy="70" r="5" fill="#FF5252" />
+  <circle cx="150" cy="50" r="4" fill="#FFEB3B" />
+  <circle cx="170" cy="60" r="6" fill="#4CAF50" />
+  <circle cx="270" cy="70" r="5" fill="#2196F3" />
+  <circle cx="250" cy="50" r="4" fill="#FF9800" />
+  <circle cx="230" cy="60" r="6" fill="#E040FB" />
+  
+  <!-- Text -->
+  <text x="200" y="220" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#7E57C2">Hình ảnh dấu mốc quan trọng</text>
+  <text x="200" y="245" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#7E57C2">Đang cập nhật hình ảnh về thành tựu đáng nhớ</text>
+</svg> 

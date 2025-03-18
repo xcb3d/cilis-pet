@@ -1,0 +1,28 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#EFF8FF" />
+  
+  <!-- Grid pattern -->
+  <path d="M0 50H400" stroke="#C9E3F8" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M0 100H400" stroke="#C9E3F8" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M0 150H400" stroke="#C9E3F8" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M0 200H400" stroke="#C9E3F8" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M0 250H400" stroke="#C9E3F8" stroke-width="1" stroke-dasharray="4 4" />
+  
+  <path d="M50 0V300" stroke="#C9E3F8" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M100 0V300" stroke="#C9E3F8" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M150 0V300" stroke="#C9E3F8" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M200 0V300" stroke="#C9E3F8" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M250 0V300" stroke="#C9E3F8" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M300 0V300" stroke="#C9E3F8" stroke-width="1" stroke-dasharray="4 4" />
+  <path d="M350 0V300" stroke="#C9E3F8" stroke-width="1" stroke-dasharray="4 4" />
+  
+  <!-- Medical cross -->
+  <rect x="160" y="90" width="80" height="80" rx="10" fill="#67B0F4" />
+  <rect x="190" y="105" width="20" height="50" rx="5" fill="white" />
+  <rect x="175" y="120" width="50" height="20" rx="5" fill="white" />
+  
+  <!-- Text -->
+  <text x="200" y="220" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#2B88D9">Hình ảnh khám sức khỏe</text>
+  <text x="200" y="245" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4299E1">Đang cập nhật hình ảnh khám sức khỏe và điều trị</text>
+</svg> 

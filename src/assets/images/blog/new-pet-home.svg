@@ -1,0 +1,31 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#FFE9F3" />
+  
+  <!-- House -->
+  <path d="M100 250H300V150H100V250Z" fill="#FFFFFF" stroke="#FF85A1" stroke-width="3"/>
+  <path d="M80 150L200 70L320 150" fill="#FF85A1" stroke="#FF85A1" stroke-width="3"/>
+  <path d="M175 250H225V200H175V250Z" fill="#FF85A1"/>
+  
+  <!-- Windows -->
+  <rect x="130" y="180" width="40" height="40" fill="#A2D2FF" stroke="#FF85A1" stroke-width="2"/>
+  <rect x="230" y="180" width="40" height="40" fill="#A2D2FF" stroke="#FF85A1" stroke-width="2"/>
+  
+  <!-- Dog and cat -->
+  <circle cx="150" cy="270" r="15" fill="#FFD699" /> <!-- Dog head -->
+  <circle cx="142" cy="262" r="3" fill="#333333" /> <!-- Dog eye -->
+  <circle cx="158" cy="262" r="3" fill="#333333" /> <!-- Dog eye -->
+  <path d="M150 268C150 268 145 273 155 273" stroke="#333333" stroke-width="2" /> <!-- Dog mouth -->
+  <circle cx="135" cy="260" r="6" fill="#C49A6C" /> <!-- Dog ear -->
+  <circle cx="165" cy="260" r="6" fill="#C49A6C" /> <!-- Dog ear -->
+  
+  <circle cx="250" cy="270" r="15" fill="#9E9E9E" /> <!-- Cat head -->
+  <ellipse cx="245" cy="265" rx="3" ry="5" fill="#333333" /> <!-- Cat eye -->
+  <ellipse cx="255" cy="265" rx="3" ry="5" fill="#333333" /> <!-- Cat eye -->
+  <path d="M247 270L250 272L253 270" fill="#FFCCBC" /> <!-- Cat nose -->
+  <path d="M240 270C240 270 230 268 225 270M240 272C240 272 233 273 228 275" stroke="#BDBDBD" stroke-width="1" /> <!-- Cat whiskers left -->
+  <path d="M260 270C260 270 270 268 275 270M260 272C260 272 267 273 272 275" stroke="#BDBDBD" stroke-width="1" /> <!-- Cat whiskers right -->
+  
+  <!-- Heart above house -->
+  <path d="M190 100C190 100 180 90 170 100C160 110 170 120 190 130C210 120 220 110 210 100C200 90 190 100 190 100Z" fill="#FF85A1" />
+</svg> 

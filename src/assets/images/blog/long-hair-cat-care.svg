@@ -1,0 +1,53 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#FFF0F5" />
+  
+  <!-- Cat -->
+  <ellipse cx="200" cy="180" rx="60" ry="40" fill="#FFFFFF" stroke="#DFDFDF" stroke-width="2"/> <!-- Body -->
+  <circle cx="200" cy="120" r="40" fill="#FFFFFF" stroke="#DFDFDF" stroke-width="2"/> <!-- Head -->
+  
+  <!-- Fluffy fur around cat - long hair -->
+  <ellipse cx="200" cy="180" rx="70" ry="50" fill="#FFFFFF" opacity="0.8" /> <!-- Body fluff -->
+  <ellipse cx="200" cy="120" rx="50" ry="50" fill="#FFFFFF" opacity="0.8" /> <!-- Head fluff -->
+  
+  <!-- Cat Face -->
+  <path d="M170 90L180 110H160L170 90Z" fill="#EEEEEE"/> <!-- Left ear -->
+  <path d="M230 90L240 110H220L230 90Z" fill="#EEEEEE"/> <!-- Right ear -->
+  <ellipse cx="185" cy="120" rx="5" ry="10" fill="#333333" /> <!-- Left eye -->
+  <ellipse cx="215" cy="120" rx="5" ry="10" fill="#333333" /> <!-- Right eye -->
+  <path d="M195 130L200 133L205 130L200 127L195 130Z" fill="#FFC0CB" /> <!-- Nose -->
+  
+  <!-- Whiskers -->
+  <path d="M185 135C185 135 160 130 140 135M185 140C185 140 160 140 145 150" stroke="#EEEEEE" stroke-width="1.5" />
+  <path d="M215 135C215 135 240 130 260 135M215 140C215 140 240 140 255 150" stroke="#EEEEEE" stroke-width="1.5" />
+  
+  <!-- Tail -->
+  <path d="M270 180C290 170 310 190 320 160" stroke="#FFFFFF" stroke-width="25" stroke-linecap="round" />
+  <path d="M270 180C290 170 310 190 320 160" stroke="#EEEEEE" stroke-width="20" stroke-linecap="round" />
+  
+  <!-- Grooming Tools -->
+  <rect x="60" y="80" width="70" height="15" rx="5" fill="#FFCCBC" stroke="#FFAB91" stroke-width="2"/> <!-- Brush handle -->
+  <rect x="30" y="80" width="30" height="15" rx="2" fill="#FFAB91" stroke="#FF8A65" stroke-width="2"/> <!-- Brush head -->
+  <path d="M30 88L20 100M35 88L25 100M40 88L30 100M45 88L35 100M50 88L40 100M55 88L45 100" stroke="#FF8A65" stroke-width="2"/> <!-- Bristles -->
+  
+  <!-- Comb -->
+  <rect x="320" y="120" width="60" height="10" rx="3" fill="#B39DDB" stroke="#9575CD" stroke-width="2"/> <!-- Comb handle -->
+  <path d="M320 120L320 100M330 120L330 90M340 120L340 95M350 120L350 90M360 120L360 95M370 120L370 100" stroke="#9575CD" stroke-width="2"/> <!-- Comb teeth -->
+  
+  <!-- Shampoo Bottle -->
+  <rect x="80" y="200" width="30" height="50" rx="5" fill="#81D4FA" stroke="#4FC3F7" stroke-width="2"/>
+  <rect x="85" y="190" width="20" height="10" rx="3" fill="#4FC3F7" stroke="#29B6F6" stroke-width="2"/>
+  <circle cx="95" cy="225" r="10" fill="#29B6F6" stroke="#03A9F4" stroke-width="1"/>
+  <text x="95" y="228" font-family="Arial" font-size="8" text-anchor="middle" fill="#FFFFFF">CAT</text>
+  
+  <!-- Water droplets -->
+  <path d="M330 220 C330 210 340 210 340 220 L335 230 Z" fill="#81D4FA" />
+  <path d="M310 240 C310 230 320 230 320 240 L315 250 Z" fill="#81D4FA" />
+  <path d="M350 240 C350 230 360 230 360 240 L355 250 Z" fill="#81D4FA" />
+  
+  <!-- Fur tufts -->
+  <path d="M150 200C145 190 140 195 135 185" stroke="#EEEEEE" stroke-width="5" stroke-linecap="round" />
+  <path d="M250 200C255 190 260 195 265 185" stroke="#EEEEEE" stroke-width="5" stroke-linecap="round" />
+  <path d="M180 230C175 240 170 235 165 245" stroke="#EEEEEE" stroke-width="5" stroke-linecap="round" />
+  <path d="M220 230C225 240 230 235 235 245" stroke="#EEEEEE" stroke-width="5" stroke-linecap="round" />
+</svg> 

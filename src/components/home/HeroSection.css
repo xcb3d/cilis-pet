@@ -1,0 +1,349 @@
+.hero-section {
+  padding-bottom: 100px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+/* Áp dụng theme màu sắc theo mùa */
+.feminine-theme-spring .hero-section {
+  background-color: var(--theme-primary-light, #FFF0F7);
+}
+
+.feminine-theme-summer .hero-section {
+  background-color: var(--theme-primary-light, #D9F0FF);
+}
+
+.feminine-theme-autumn .hero-section {
+  background-color: var(--theme-primary-light, #FFF1E6);
+}
+
+.feminine-theme-winter .hero-section {
+  background-color: var(--theme-primary-light, #F0F5FF);
+}
+
+.hero-title {
+  font-weight: 800;
+  line-height: 1.2;
+  position: relative;
+  margin-bottom: 2rem;
+  transition: color 0.5s ease;
+}
+
+/* Màu chữ title theo mùa */
+.feminine-theme-spring .hero-title {
+  color: #FF4D8C;
+}
+
+.feminine-theme-summer .hero-title {
+  color: #7FC8FF;
+}
+
+.feminine-theme-autumn .hero-title {
+  color: #FFC58B;
+}
+
+.feminine-theme-winter .hero-title {
+  color: #C1D3FE;
+}
+
+.hero-title-accent {
+  display: inline-block;
+  position: relative;
+  transition: color 0.5s ease;
+}
+
+/* Màu accent text theo mùa */
+.feminine-theme-spring .hero-title-accent {
+  color: #FF4D8C;
+}
+
+.feminine-theme-summer .hero-title-accent {
+  color: #7FA2FF;
+}
+
+.feminine-theme-autumn .hero-title-accent {
+  color: #E28F83;
+}
+
+.feminine-theme-winter .hero-title-accent {
+  color: #ABC4FF;
+}
+
+.hero-title-accent::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  z-index: -1;
+  border-radius: 5px;
+  transition: background 0.5s ease;
+}
+
+/* Màu đường gạch chân accent theo mùa */
+.feminine-theme-spring .hero-title-accent::after {
+  background: rgba(255, 137, 173, 0.3);
+}
+
+.feminine-theme-summer .hero-title-accent::after {
+  background: rgba(162, 210, 255, 0.3);
+}
+
+.feminine-theme-autumn .hero-title-accent::after {
+  background: rgba(255, 197, 139, 0.3);
+}
+
+.feminine-theme-winter .hero-title-accent::after {
+  background: rgba(193, 211, 254, 0.3);
+}
+
+.home-hero-image {
+  position: relative;
+  transition: all 0.5s ease;
+  transform-origin: center;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+/* Styles cho image slider */
+.home-hero-image img {
+  transition: transform 0.7s ease-out;
+  object-fit: cover;
+}
+
+.home-hero-image:hover img {
+  transform: scale(1.05);
+}
+
+/* Navigation buttons */
+.home-hero-image button {
+  opacity: 0;
+  transition: all 0.3s ease;
+  transform: scale(0.9);
+}
+
+.home-hero-image:hover button {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.home-hero-image button:active {
+  transform: scale(0.95);
+}
+
+/* Indicators */
+.home-hero-image .flex button {
+  transition: all 0.3s ease;
+}
+
+.home-hero-image .flex button:hover {
+  transform: scale(1.2);
+}
+
+/* Màu cho navigation buttons theo mùa */
+.feminine-theme-spring .home-hero-image button:hover svg {
+  color: #FF4D8C;
+}
+
+.feminine-theme-summer .home-hero-image button:hover svg {
+  color: #7FA2FF;
+}
+
+.feminine-theme-autumn .home-hero-image button:hover svg {
+  color: #E28F83;
+}
+
+.feminine-theme-winter .home-hero-image button:hover svg {
+  color: #ABC4FF;
+}
+
+.home-hero-image::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  z-index: -1;
+  border-radius: 20px;
+  animation: gradient 8s ease infinite;
+  transition: background 0.5s ease;
+}
+
+/* Màu gradient border cho hero image theo mùa */
+.feminine-theme-spring .home-hero-image::before {
+  background: linear-gradient(45deg, #FFD6E4, #FFCECE, #FFA5C3, #FF85A1);
+  background-size: 400% 400%;
+}
+
+.feminine-theme-summer .home-hero-image::before {
+  background: linear-gradient(45deg, #A2D2FF, #BFACE0, #7FC8FF, #7FA2FF);
+  background-size: 400% 400%;
+}
+
+.feminine-theme-autumn .home-hero-image::before {
+  background: linear-gradient(45deg, #FFDAB9, #FFC58B, #E28F83, #FF9E80);
+  background-size: 400% 400%;
+}
+
+.feminine-theme-winter .home-hero-image::before {
+  background: linear-gradient(45deg, #E2EAFC, #C1D3FE, #ABC4FF, #CCDBFD);
+  background-size: 400% 400%;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Button styles với theme theo mùa */
+.feminine-button {
+  padding: 12px 24px;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.feminine-theme-spring .feminine-button-pink {
+  background: linear-gradient(135deg, #FF85A1, #FF4D8C);
+  color: white;
+  box-shadow: 0 10px 20px rgba(255, 77, 140, 0.3);
+}
+
+.feminine-theme-summer .feminine-button-pink {
+  background: linear-gradient(135deg, #7FC8FF, #7FA2FF);
+  color: white;
+  box-shadow: 0 10px 20px rgba(127, 162, 255, 0.3);
+}
+
+.feminine-theme-autumn .feminine-button-pink {
+  background: linear-gradient(135deg, #FFC58B, #E28F83);
+  color: white;
+  box-shadow: 0 10px 20px rgba(226, 143, 131, 0.3);
+}
+
+.feminine-theme-winter .feminine-button-pink {
+  background: linear-gradient(135deg, #C1D3FE, #ABC4FF);
+  color: white;
+  box-shadow: 0 10px 20px rgba(171, 196, 255, 0.3);
+}
+
+.feminine-button-pink:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px rgba(255, 77, 140, 0.4);
+}
+
+.feminine-button-candy {
+  background: white;
+  border: 2px solid;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: 0 5px 15px rgba(255, 133, 161, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Màu border button candy theo mùa */
+.feminine-theme-spring .feminine-button-candy {
+  color: #FF4D8C;
+  border-color: #FF85A1;
+}
+
+.feminine-theme-summer .feminine-button-candy {
+  color: #7FA2FF;
+  border-color: #7FC8FF;
+}
+
+.feminine-theme-autumn .feminine-button-candy {
+  color: #E28F83;
+  border-color: #FFC58B;
+}
+
+.feminine-theme-winter .feminine-button-candy {
+  color: #ABC4FF;
+  border-color: #C1D3FE;
+}
+
+.feminine-button-candy:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 133, 161, 0.3);
+}
+
+/* Background màu cho button hover theo mùa */
+.feminine-theme-spring .feminine-button-candy:hover {
+  background: rgba(255, 133, 161, 0.1);
+}
+
+.feminine-theme-summer .feminine-button-candy:hover {
+  background: rgba(127, 200, 255, 0.1);
+}
+
+.feminine-theme-autumn .feminine-button-candy:hover {
+  background: rgba(255, 197, 139, 0.1);
+}
+
+.feminine-theme-winter .feminine-button-candy:hover {
+  background: rgba(193, 211, 254, 0.1);
+}
+
+/* Hiệu ứng hover cho heading */
+.heading-cute {
+  position: relative;
+  display: inline-block;
+}
+
+.heading-cute::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, currentColor, transparent);
+  transform: scaleX(0.7);
+  opacity: 0.7;
+  transition: all 0.5s ease;
+}
+
+.heading-cute:hover::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* Màu cho heading theo mùa */
+.feminine-theme-spring .heading-cute {
+  color: #FF4D8C;
+}
+
+.feminine-theme-summer .heading-cute {
+  color: #7FA2FF;
+}
+
+.feminine-theme-autumn .heading-cute {
+  color: #E28F83;
+}
+
+.feminine-theme-winter .heading-cute {
+  color: #ABC4FF;
+}
+
+/* Ẩn/hiện theme toggler trên mobile */
+@media (max-width: 640px) {
+  .seasonal-theme-toggle {
+    transform: scale(0.8);
+    transform-origin: top right;
+  }
+} 
