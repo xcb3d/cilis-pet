@@ -90,9 +90,9 @@ const AdoptionForm = ({ petId = null, petName = null }) => {
     >
       {petName && (
         <div className="mb-6 p-4 bg-pink-50 rounded-lg border border-pink-200">
-          <div className="flex items-center gap-2 text-pink-600 mb-2">
+          <div className="flex items-center justify-center gap-2 text-pink-600 mb-2">
             <FaHeart className="text-lg" />
-            <h3 className="font-semibold">Đơn đăng ký nhận nuôi {petName}</h3>
+            <h3 className="font-semibold m-0">Đơn đăng ký nhận nuôi {petName}</h3>
           </div>
           <p className="text-gray-600 text-sm">
             Bạn đang đăng ký nhận nuôi {petName}. Vui lòng cung cấp đầy đủ thông tin để chúng tôi có thể đánh giá sự phù hợp giữa bạn và bé cưng.

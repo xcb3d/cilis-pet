@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, NavLink as RouterNavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaPaw, FaBars, FaTimes, FaHome, FaDog, FaCalendarAlt, FaHeart, FaInfoCircle, FaSearch, FaBookOpen } from 'react-icons/fa';
+import PetButton from '../buttons/PetButton';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -87,38 +88,40 @@ const Header = () => {
 
           {/* Action Buttons */}
           <div className="hidden md:flex items-center gap-3">
-            <Link 
+            <PetButton
               to="/adopt"
-              className="feminine-button bg-white/80 backdrop-blur-sm flex items-center gap-1.5 px-4 py-2 rounded-full text-pink-600 border border-pink-200 hover:bg-pink-50 transition-all duration-300"
-            >
-              <FaHeart className="text-sm" />
-              <span className="text-sm font-medium">Nhận nuôi</span>
-            </Link>
+              text="Nhận nuôi"
+              icon="heart"
+              variant="light"
+              size="sm"
+              className="!bg-white/80 backdrop-blur-sm text-pink-600 border border-pink-200 hover:bg-pink-50"
+            />
             
-            <button 
-              className="feminine-button feminine-button-pink flex items-center gap-1.5"
+            <PetButton
+              text="Tìm kiếm"
+              icon="search"
+              variant="primary"
+              size="sm"
               onClick={() => alert('Tính năng tìm kiếm sẽ sớm ra mắt!')}
-            >
-              <FaSearch className="text-sm" />
-              <span>Tìm kiếm</span>
-            </button>
+              className="feminine-button-pink"
+            />
           </div>
 
           {/* Mobile Menu Button */}
           <div className="flex md:hidden">
-            <button 
+            <PetButton
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 rounded-full ${
-                isOpen ? 'bg-pink-100' : 'bg-white/80 backdrop-blur-sm'
-              }`}
-              aria-label="Toggle menu"
+              variant={isOpen ? "light" : "light"}
+              size="icon"
+              className={`${isOpen ? 'bg-pink-100' : 'bg-white/80 backdrop-blur-sm'}`}
+              noEffects={true}
             >
               {isOpen ? (
                 <FaTimes className="text-pink-600 text-xl" />
               ) : (
                 <FaBars className="text-pink-500 text-xl" />
               )}
-            </button>
+            </PetButton>
           </div>
         </div>
       </div>
@@ -153,25 +156,31 @@ const Header = () => {
                   <div className="border-t border-pink-200/50 w-full my-2"></div>
                 </div>
                 
-                <Link
+                <PetButton
                   to="/adopt"
-                  className="feminine-button bg-white flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl text-pink-600 border border-pink-200 hover:bg-pink-50 transition-all duration-300"
+                  text="Nhận nuôi"
+                  icon="heart"
+                  variant="light"
+                  size="lg"
+                  full={true}
+                  rounded={false}
                   onClick={() => setIsOpen(false)}
-                >
-                  <FaHeart className="text-sm" />
-                  <span className="text-base font-medium">Nhận nuôi</span>
-                </Link>
+                  className="!rounded-xl border border-pink-200 text-pink-600"
+                />
                 
-                <button 
-                  className="feminine-button feminine-button-gradient flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl text-white transition-all duration-300"
+                <PetButton
+                  text="Tìm kiếm"
+                  icon="search"
+                  variant="gradient"
+                  size="lg"
+                  full={true}
+                  rounded={false}
                   onClick={() => {
                     alert('Tính năng tìm kiếm sẽ sớm ra mắt!');
                     setIsOpen(false);
                   }}
-                >
-                  <FaSearch className="text-sm" />
-                  <span className="text-base font-medium">Tìm kiếm</span>
-                </button>
+                  className="!rounded-xl"
+                />
               </nav>
             </div>
           </motion.div>

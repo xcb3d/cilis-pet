@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaCalendarAlt, FaClock, FaMapMarkerAlt, FaInfoCircle, FaTimes, FaUsers, FaRegBell, FaPaw } from 'react-icons/fa';
+import { FaCalendarAlt, FaClock, FaMapMarkerAlt, FaInfoCircle, FaTimes, FaUsers, FaRegBell, FaPaw, FaHeart } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import imagePaths from '../../utils/imageImports';
 import './EventCard.css';
 
-const EventCard = ({ event }) => {
+const EventCard = ({ event, isFavorite = false, onToggleFavorite }) => {
   const [showDetails, setShowDetails] = useState(false);
 
   // Lấy ảnh từ mock data
@@ -56,6 +56,31 @@ const EventCard = ({ event }) => {
     }
   };
 
+  // Handle favorite button click with animation
+  const handleFavoriteClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // If onToggleFavorite is provided, call it
+    if (onToggleFavorite) {
+      onToggleFavorite();
+      
+      // Create heart animation effect
+      if (!isFavorite) {
+        const heart = document.createElement('div');
+        heart.innerHTML = '❤️';
+        heart.className = 'floating-emoji';
+        heart.style.left = `${e.clientX}px`;
+        heart.style.top = `${e.clientY}px`;
+        document.body.appendChild(heart);
+        
+        setTimeout(() => {
+          document.body.removeChild(heart);
+        }, 2000);
+      }
+    }
+  };
+
   return (
     <motion.div
       className="event-card"
@@ -81,6 +106,19 @@ const EventCard = ({ event }) => {
             Còn {getDaysRemaining()} ngày
           </div>
         )}
+
+        {/* Favorite Button */}
+        <button 
+          onClick={handleFavoriteClick}
+          className={`absolute top-3 ${getDaysRemaining() > 0 ? 'right-24' : 'right-3'} w-8 h-8 flex items-center justify-center rounded-full ${
+            isFavorite 
+              ? 'bg-pink-500 text-white' 
+              : 'bg-white/20 backdrop-blur-sm text-white hover:bg-white/40'
+          } transition-colors shadow-md z-10`}
+          aria-label={isFavorite ? "Bỏ yêu thích" : "Yêu thích"}
+        >
+          <FaHeart className={isFavorite ? 'animate-pulse' : ''} />
+        </button>
         
         <div className="absolute bottom-0 left-0 w-full p-3">
           <h3 className="text-lg font-bold text-white mb-1 event-card-title line-clamp-1">{event.title}</h3>
@@ -145,6 +183,19 @@ const EventCard = ({ event }) => {
                   onClick={() => setShowDetails(false)}
                 >
                   <FaTimes />
+                </button>
+                
+                {/* Favorite Button in Modal */}
+                <button
+                  onClick={handleFavoriteClick}
+                  className={`absolute top-4 right-16 w-8 h-8 flex items-center justify-center rounded-full ${
+                    isFavorite 
+                      ? 'bg-pink-500 text-white' 
+                      : 'bg-white/20 backdrop-blur-sm text-white hover:bg-white/40'
+                  } transition-colors z-10`}
+                  aria-label={isFavorite ? "Bỏ yêu thích" : "Yêu thích"}
+                >
+                  <FaHeart className={isFavorite ? 'animate-pulse' : ''} />
                 </button>
                 
                 <div className="h-60 relative">

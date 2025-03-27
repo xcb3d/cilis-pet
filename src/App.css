@@ -942,3 +942,292 @@ button, a {
 .winter-btn {
   background-color: rgba(224, 240, 255, 0.3);
 }
+
+/* Cursor trail styles */
+.cursor-trail-element {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+  z-index: 9998;
+  user-select: none;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.7));
+}
+
+/* Sparkle on hover effect for interactive elements */
+.sparkle-on-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.sparkle-on-hover::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  right: -100%;
+  bottom: -100%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  transform: scale(0);
+}
+
+.sparkle-on-hover:hover::after {
+  opacity: 0.5;
+  animation: sparkleHover 1s ease forwards;
+}
+
+@keyframes sparkleHover {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* Improved hover effects for cards */
+.card-hover-effect {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  z-index: 1;
+}
+
+.card-hover-effect::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 182, 193, 0.2) 0%,
+    rgba(255, 240, 245, 0.2) 100%
+  );
+  border-radius: inherit;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(255, 182, 193, 0.3);
+}
+
+.card-hover-effect:hover::before {
+  opacity: 1;
+}
+
+/* 3D tilt effect for images */
+.tilt-effect {
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.tilt-effect:hover {
+  transform: rotateX(5deg) rotateY(5deg);
+}
+
+/* Sweet alert override styles */
+.swal2-popup {
+  border-radius: 20px !important;
+  background-color: #fff9fc !important;
+}
+
+.swal2-title {
+  color: #FF6B95 !important;
+  font-family: 'Quicksand', sans-serif !important;
+}
+
+.swal2-content {
+  color: #555 !important;
+  font-family: 'Quicksand', sans-serif !important;
+}
+
+.swal2-styled.swal2-confirm {
+  background-color: #FF6B95 !important;
+  border-radius: 30px !important;
+  padding: 10px 25px !important;
+  font-size: 1rem !important;
+}
+
+.swal2-styled.swal2-cancel {
+  background-color: #f5f5f5 !important;
+  color: #555 !important;
+  border-radius: 30px !important;
+  padding: 10px 25px !important;
+  font-size: 1rem !important;
+}
+
+/* Loading indicators with pet themes */
+.pet-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+}
+
+.pet-loading-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pet-loading-animation {
+  font-size: 40px;
+  animation: petBounce 1s infinite alternate ease-in-out;
+}
+
+@keyframes petBounce {
+  from {
+    transform: translateY(0) rotate(0deg);
+  }
+  to {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}
+
+.pet-loading-text {
+  margin-top: 15px;
+  font-family: 'Quicksand', sans-serif;
+  color: #FF6B95;
+  animation: pulseText 1.5s infinite alternate;
+}
+
+@keyframes pulseText {
+  from {
+    opacity: 0.7;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Focus styles for better accessibility */
+button:focus, 
+a:focus, 
+input:focus, 
+textarea:focus, 
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 182, 193, 0.5);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Smooth hover transition for all interactive elements */
+a, button, .interactive {
+  transition: all 0.3s ease;
+}
+
+/* Paw print effect for buttons */
+.paw-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.paw-effect::after {
+  content: '🐾';
+  position: absolute;
+  top: 50%;
+  left: 110%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: left 0.6s ease, opacity 0.6s ease;
+  pointer-events: none;
+  font-size: 1.2em;
+}
+
+.paw-effect:hover::after {
+  left: 50%;
+  opacity: 1;
+}
+
+.paw-effect:hover .paw-text {
+  transform: translateX(-15px);
+  opacity: 0;
+}
+
+.paw-text {
+  display: inline-block;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* Toast notification styles */
+.toast-cute {
+  border-radius: 12px;
+  padding: 12px 20px;
+  background-color: #fff;
+  box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+  color: #333;
+  font-family: 'Quicksand', sans-serif;
+  border-left: 4px solid #FF6B95;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.toast-cute::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 182, 193, 0.2) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: toastShine 2s infinite;
+}
+
+@keyframes toastShine {
+  0% {
+    transform: translateX(-100%);
+  }
+  50%, 100% {
+    transform: translateX(100%);
+  }
+}
+
+.toast-icon {
+  font-size: 1.5rem;
+}
+
+.toast-cute.success {
+  border-left-color: #8ED1AF;
+}
+
+.toast-cute.error {
+  border-left-color: #FF8087;
+}
+
+.toast-cute.warning {
+  border-left-color: #FFD166;
+}
+
+.toast-cute.info {
+  border-left-color: #86C7ED;
+}

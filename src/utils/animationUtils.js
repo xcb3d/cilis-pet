@@ -541,16 +541,107 @@ export const createCustomCursorEffect = (cursorMappings) => {
 };
 
 /**
+ * Creates a cursor trail effect that follows the mouse with animal shapes
+ * @param {number} trailCount - Number of trailing elements
+ */
+export const createCursorTrailEffect = (trailCount = 5) => {
+  // Only run in browser environment
+  if (typeof window === 'undefined') return;
+  
+  // Create trail container if it doesn't exist
+  let trailContainer = document.getElementById('cursor-trail-container');
+  if (!trailContainer) {
+    trailContainer = document.createElement('div');
+    trailContainer.id = 'cursor-trail-container';
+    trailContainer.style.position = 'fixed';
+    trailContainer.style.top = '0';
+    trailContainer.style.left = '0';
+    trailContainer.style.width = '100%';
+    trailContainer.style.height = '100%';
+    trailContainer.style.pointerEvents = 'none';
+    trailContainer.style.zIndex = '9998';
+    document.body.appendChild(trailContainer);
+  }
+  
+  // Create the trail elements
+  const trailElements = [];
+  const emojis = ['🐱', '🐶', '🐰', '🐹', '🦊', '🐻'];
+  
+  for (let i = 0; i < trailCount; i++) {
+    const trail = document.createElement('div');
+    const emoji = emojis[i % emojis.length];
+    trail.className = 'cursor-trail-element';
+    trail.innerHTML = emoji;
+    trail.style.position = 'fixed';
+    trail.style.opacity = (1 - (i / trailCount)) * 0.5; // Elements fade out
+    trail.style.fontSize = `${20 - (i * 2)}px`; // Elements get smaller
+    trail.style.zIndex = '9998';
+    trail.style.pointerEvents = 'none';
+    trail.style.transition = 'transform 0.1s ease-out, opacity 0.3s ease-out';
+    trail.style.transform = 'translate(-50%, -50%)';
+    trailContainer.appendChild(trail);
+    trailElements.push(trail);
+  }
+  
+  // Position data
+  let mouseX = 0;
+  let mouseY = 0;
+  let positions = Array(trailCount).fill().map(() => ({ x: 0, y: 0 }));
+  
+  // Update position of trail elements
+  const updateTrail = () => {
+    // Update positions array (first position is current mouse position)
+    positions.unshift({ x: mouseX, y: mouseY });
+    positions = positions.slice(0, trailCount);
+    
+    // Update each trail element position
+    trailElements.forEach((trail, index) => {
+      const pos = positions[index] || positions[positions.length - 1];
+      if (pos) {
+        trail.style.transform = `translate(${pos.x}px, ${pos.y}px) translate(-50%, -50%) scale(${1 - (index * 0.05)})`;
+        
+        // Rotation effect
+        const rotation = Math.sin(Date.now() / 1000 + index) * 15;
+        trail.style.transform += ` rotate(${rotation}deg)`;
+      }
+    });
+    
+    requestAnimationFrame(updateTrail);
+  };
+  
+  // Track mouse movement
+  const handleMouseMove = (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  };
+  
+  // Start animation
+  window.addEventListener('mousemove', handleMouseMove);
+  updateTrail();
+  
+  // Return cleanup function
+  return () => {
+    window.removeEventListener('mousemove', handleMouseMove);
+    if (trailContainer) {
+      trailContainer.remove();
+    }
+  };
+};
+
+/**
  * Applies all interactive animations to the page
  */
 export const initializeAllAnimations = () => {
   // Wait for DOM to be fully loaded
   window.addEventListener('DOMContentLoaded', () => {
     // Add paw print cursor to the whole site
-    document.body.classList.add('paw-cursor');
+    document.body.classList.add('cute-cursor');
     
     // Create paw print trail
     createPawPrintTrail('root');
+    
+    // Add cursor trail effect
+    createCursorTrailEffect(5);
     
     // Add heart click effect to like buttons
     createHeartClickEffect('.feminine-like-button, button:has(.fa-heart), .pet-card');

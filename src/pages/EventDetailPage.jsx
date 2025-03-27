@@ -8,7 +8,7 @@ import {
 } from 'react-icons/fa';
 import events from '../data/eventsData';
 import imagePaths from '../utils/imageImports';
-import './EventDetailPage.css';
+import PetButton from '../components/buttons/PetButton';
 
 const EventDetailPage = () => {
   const { id } = useParams();
@@ -129,12 +129,16 @@ const EventDetailPage = () => {
             </div>
             <h2 className="text-2xl font-bold text-gray-800">Không tìm thấy sự kiện</h2>
             <p className="text-gray-600 text-center">Sự kiện này không tồn tại hoặc đã bị xóa.</p>
-            <Link 
+            <PetButton 
               to="/events" 
-              className="mt-4 px-6 py-2 bg-pink-500 text-white rounded-full flex items-center"
+              text="Quay lại trang sự kiện"
+              icon="paw"
+              variant="primary"
+              size="md"
+              className="mt-4"
             >
-              <FaArrowLeft className="mr-2" /> Quay lại trang sự kiện
-            </Link>
+              <FaArrowLeft className="mr-2" />
+            </PetButton>
           </div>
         </div>
       </div>
@@ -145,30 +149,35 @@ const EventDetailPage = () => {
     <div className="container mx-auto px-4 pt-24 pb-16">
       {/* Back button */}
       <div className="mb-6">
-        <button 
+        <PetButton 
           onClick={() => navigate(-1)} 
-          className="flex items-center text-gray-600 hover:text-pink-500 transition-colors"
+          text="Quay lại"
+          variant="light"
+          size="sm"
+          noEffects={true}
+          className="hover:bg-transparent text-gray-600 hover:text-pink-500"
         >
-          <FaArrowLeft className="mr-2" /> Quay lại
-        </button>
+          <FaArrowLeft className="mr-2" />
+        </PetButton>
       </div>
 
       <div className="max-w-5xl mx-auto">
         {/* Main content */}
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
           {/* Hero image */}
-          <div className="relative h-[300px] md:h-[400px] event-detail-hero">
+          <div className="relative h-[300px] md:h-[400px] overflow-hidden group">
             <img 
               src={getImageSrc()}
               alt={event.title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-800 ease-in-out group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
             
             {/* Title overlay */}
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
               <div className="flex flex-wrap gap-2 mb-3">
-                <span className="px-3 py-1 rounded-full text-xs font-semibold text-white event-status-badge">
+                <span className="px-3 py-1 rounded-full text-xs font-semibold text-white bg-gradient-to-r from-pink-500 to-purple-600 shadow-lg" 
+                      style={{animation: 'pulse 2s infinite'}}>
                   {event.status}
                 </span>
                 {getDaysRemaining() > 0 && (
@@ -177,7 +186,9 @@ const EventDetailPage = () => {
                   </span>
                 )}
               </div>
-              <h1 className="text-2xl md:text-4xl font-bold text-white mb-2 event-detail-title">{event.title}</h1>
+              <h1 className="text-2xl md:text-4xl font-extrabold text-white mb-2 bg-gradient-to-r from-white to-pink-50 bg-clip-text text-transparent drop-shadow-[0_3px_10px_rgba(0,0,0,0.5)]">
+                {event.title}
+              </h1>
               <div className="flex items-center text-white/90 text-sm md:text-base">
                 <FaCalendarAlt className="mr-2 text-pink-300" />
                 <span>{event.date}</span>
@@ -189,36 +200,44 @@ const EventDetailPage = () => {
             
             {/* Action buttons */}
             <div className="absolute top-4 right-4 flex items-center gap-2">
-              <button 
-                className="bg-white/30 backdrop-blur-sm p-2 rounded-full text-white"
+              <PetButton 
+                variant={isLiked ? "primary" : "light"}
+                size="icon"
                 onClick={() => setIsLiked(!isLiked)}
+                className={isLiked ? "bg-pink-500 text-white" : "bg-white/30 backdrop-blur-sm text-white hover:bg-white/40"}
               >
                 {isLiked ? 
-                  <FaHeart className="text-red-500 text-lg" /> : 
+                  <FaHeart className="text-lg" /> : 
                   <FaRegHeart className="text-lg" />
                 }
-              </button>
+              </PetButton>
               <div className="relative">
-                <button 
-                  className="bg-white/30 backdrop-blur-sm p-2 rounded-full text-white"
+                <PetButton 
+                  variant="light"
+                  size="icon"
                   onClick={() => setShowShareOptions(!showShareOptions)}
+                  className="bg-white/30 backdrop-blur-sm text-white hover:bg-white/40"
                 >
                   <FaShare className="text-lg" />
-                </button>
+                </PetButton>
                 
                 {showShareOptions && (
                   <motion.div 
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="absolute top-full right-0 mt-2 bg-white rounded-lg shadow-lg p-3 w-48"
+                    className="absolute top-full right-0 mt-2 bg-white rounded-lg shadow-lg p-3 w-48 z-10"
                   >
-                    <button 
-                      className="flex items-center w-full p-2 hover:bg-gray-100 rounded-md text-left"
+                    <PetButton 
+                      text={copySuccess ? 'Đã sao chép' : 'Sao chép liên kết'}
+                      variant="light"
+                      size="sm"
+                      full={true}
+                      noEffects={true}
                       onClick={handleCopyLink}
+                      className="justify-start hover:bg-gray-100 p-2"
                     >
                       {copySuccess ? <FaCheck className="mr-2 text-green-500" /> : <FaCopy className="mr-2" />}
-                      {copySuccess ? 'Đã sao chép' : 'Sao chép liên kết'}
-                    </button>
+                    </PetButton>
                   </motion.div>
                 )}
               </div>
@@ -232,7 +251,7 @@ const EventDetailPage = () => {
                 {/* Meta information */}
                 <div className="mb-8 bg-pink-50/50 p-5 rounded-xl">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div className="flex items-start event-meta-item p-3 rounded-lg">
+                    <div className="flex items-start p-3 rounded-lg hover:-translate-y-2 hover:shadow-md transition-all duration-300">
                       <div className="bg-pink-100 p-3 rounded-full mr-3 flex-shrink-0">
                         <FaMapMarkerAlt className="text-pink-500" />
                       </div>
@@ -242,54 +261,46 @@ const EventDetailPage = () => {
                       </div>
                     </div>
                     
-                    <div className="flex items-start event-meta-item p-3 rounded-lg">
+                    <div className="flex items-start p-3 rounded-lg hover:-translate-y-2 hover:shadow-md transition-all duration-300">
                       <div className="bg-pink-100 p-3 rounded-full mr-3 flex-shrink-0">
                         <FaCalendarAlt className="text-pink-500" />
                       </div>
                       <div>
                         <h3 className="font-bold text-gray-800 mb-1">Thời gian</h3>
-                        <p className="text-gray-600">
-                          {event.date}
-                          <br />
-                          {event.time}
-                        </p>
+                        <p className="text-gray-600">{event.date}, {event.time}</p>
                       </div>
                     </div>
                     
-                    <div className="flex items-start event-meta-item p-3 rounded-lg">
+                    <div className="flex items-start p-3 rounded-lg hover:-translate-y-2 hover:shadow-md transition-all duration-300">
                       <div className="bg-pink-100 p-3 rounded-full mr-3 flex-shrink-0">
                         <FaUsers className="text-pink-500" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-gray-800 mb-1">Người tham gia</h3>
+                        <h3 className="font-bold text-gray-800 mb-1">Số người tham gia</h3>
                         <p className="text-gray-600">{getRandomRegistrations()} người đã đăng ký</p>
                       </div>
                     </div>
                     
-                    <div className="flex items-start event-meta-item p-3 rounded-lg">
+                    <div className="flex items-start p-3 rounded-lg hover:-translate-y-2 hover:shadow-md transition-all duration-300">
                       <div className="bg-pink-100 p-3 rounded-full mr-3 flex-shrink-0">
-                        <FaRegBell className="text-pink-500" />
+                        <FaInfoCircle className="text-pink-500" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-gray-800 mb-1">Trạng thái</h3>
-                        <p className="text-gray-600">
-                          {event.status}
-                          {getDaysRemaining() > 0 && (
-                            <span className="ml-2">- Còn {getDaysRemaining()} ngày</span>
-                          )}
-                        </p>
+                        <h3 className="font-bold text-gray-800 mb-1">Loại sự kiện</h3>
+                        <p className="text-gray-600">{event.category}</p>
                       </div>
                     </div>
                   </div>
                 </div>
                 
-                {/* Description */}
+                {/* Event description */}
                 <div className="mb-8">
-                  <h2 className="text-2xl font-bold mb-4 text-gray-800 section-title-gradient">
-                    Mô tả sự kiện
+                  <h2 className="text-2xl font-bold mb-4 text-gray-800 inline-block relative after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:w-full after:h-[3px] after:bg-gradient-to-r after:from-pink-500 after:to-transparent after:rounded-md">
+                    Thông tin chi tiết
                   </h2>
-                  <div className="bg-white rounded-lg p-5 shadow-sm border border-gray-100 info-card">
-                    <p className="text-gray-700 leading-relaxed mb-6 whitespace-pre-line">
+                  
+                  <div className="space-y-6">
+                    <p className="text-gray-700 leading-relaxed">
                       {event.description}
                     </p>
                     
@@ -319,17 +330,18 @@ const EventDetailPage = () => {
                 </div>
                 
                 {/* Photos section */}
-                <div className="mb-8 event-gallery">
-                  <h2 className="text-2xl font-bold mb-4 text-gray-800 section-title-gradient">
+                <div className="mb-8">
+                  <h2 className="text-2xl font-bold mb-4 text-gray-800 inline-block relative after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:w-full after:h-[3px] after:bg-gradient-to-r after:from-pink-500 after:to-transparent after:rounded-md">
                     Hình ảnh sự kiện
                   </h2>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                     {[1, 2, 3, 4, 5, 6].map((item) => (
-                      <div key={item} className="rounded-lg overflow-hidden h-48 bg-pink-100 event-gallery-item">
+                      <div key={item} className="rounded-lg overflow-hidden h-48 bg-pink-100 relative group">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
                         <img 
                           src={getImageSrc()} 
                           alt={`Hình ảnh ${item}`}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover transition-transform duration-600 ease-in-out group-hover:scale-110"
                         />
                       </div>
                     ))}
@@ -339,109 +351,89 @@ const EventDetailPage = () => {
               
               {/* Registration form */}
               <div>
-                <div className="bg-white rounded-xl p-6 sticky top-24 shadow-lg border border-pink-100 registration-form">
+                <div className="bg-white rounded-xl p-6 sticky top-24 shadow-lg border border-pink-100 relative before:content-[''] before:absolute before:top-[-15px] before:right-[-15px] before:w-[50px] before:h-[50px] before:rounded-full before:bg-pink-500/10 before:z-[-1] after:content-[''] after:absolute after:bottom-[-15px] after:left-[-15px] after:w-[70px] after:h-[70px] after:rounded-full after:bg-purple-500/10 after:z-[-1]">
                   <h2 className="text-xl font-bold mb-5 text-center text-pink-800">Đăng ký tham gia</h2>
                   
                   {registered ? (
                     <div className="text-center py-6">
-                      <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 success-icon">
-                        <FaCheck className="text-green-500 text-2xl" />
+                      <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4" 
+                           style={{
+                             animation: 'success-pulse 2s 1',
+                             boxShadow: '0 0 0 0 rgba(74, 222, 128, 0.4)'
+                           }}>
+                        <FaCheck className="text-2xl text-green-500" />
                       </div>
-                      <h3 className="font-bold text-xl text-gray-800 mb-2">Đăng ký thành công!</h3>
+                      <h3 className="text-xl font-bold text-green-600 mb-2">Đăng ký thành công!</h3>
                       <p className="text-gray-600 mb-4">
-                        Cảm ơn bạn đã đăng ký tham gia sự kiện. Chúng tôi đã gửi email xác nhận đến địa chỉ email của bạn.
+                        Cảm ơn bạn đã đăng ký tham gia sự kiện. Chúng tôi sẽ gửi thông tin chi tiết qua email của bạn.
                       </p>
-                      <button
+                      <PetButton 
+                        text="Đăng ký lại"
+                        variant="light"
+                        size="md"
                         onClick={() => setRegistered(false)}
-                        className="text-pink-500 underline"
-                      >
-                        Đăng ký cho người khác
-                      </button>
+                        className="bg-gray-200 text-gray-700 hover:bg-gray-300"
+                      />
                     </div>
                   ) : (
-                    <form onSubmit={(e) => {
-                      e.preventDefault();
-                      handleRegister();
-                    }}>
-                      <div className="mb-4">
+                    <form className="space-y-4">
+                      <div>
                         <label className="block text-gray-700 font-medium mb-2">Họ và tên</label>
-                        <input
-                          type="text"
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:border-pink-500 focus:ring-1 focus:ring-pink-500"
+                        <input 
+                          type="text" 
+                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
                           placeholder="Nhập họ và tên của bạn"
-                          required
                         />
                       </div>
                       
-                      <div className="mb-4">
+                      <div>
                         <label className="block text-gray-700 font-medium mb-2">Email</label>
-                        <input
-                          type="email"
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:border-pink-500 focus:ring-1 focus:ring-pink-500"
-                          placeholder="Nhập địa chỉ email của bạn"
-                          required
+                        <input 
+                          type="email" 
+                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
+                          placeholder="Nhập địa chỉ email"
                         />
                       </div>
                       
-                      <div className="mb-4">
+                      <div>
                         <label className="block text-gray-700 font-medium mb-2">Số điện thoại</label>
-                        <input
-                          type="tel"
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:border-pink-500 focus:ring-1 focus:ring-pink-500"
-                          placeholder="Nhập số điện thoại của bạn"
-                          required
+                        <input 
+                          type="tel" 
+                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
+                          placeholder="Nhập số điện thoại"
                         />
                       </div>
                       
-                      <div className="mb-4">
+                      <div>
                         <label className="block text-gray-700 font-medium mb-2">Số người tham gia</label>
-                        <select
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:border-pink-500 focus:ring-1 focus:ring-pink-500"
-                          required
-                        >
-                          <option value="">Chọn số người tham gia</option>
+                        <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500">
                           <option value="1">1 người</option>
                           <option value="2">2 người</option>
                           <option value="3">3 người</option>
                           <option value="4">4 người</option>
-                          <option value="5">5 người</option>
-                          <option value="more">Nhiều hơn 5 người</option>
+                          <option value="5">5 người trở lên</option>
                         </select>
                       </div>
                       
-                      <div className="mb-5">
-                        <label className="block text-gray-700 font-medium mb-2">Ghi chú (không bắt buộc)</label>
-                        <textarea
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:border-pink-500 focus:ring-1 focus:ring-pink-500"
-                          placeholder="Nhập ghi chú của bạn"
+                      <div>
+                        <label className="block text-gray-700 font-medium mb-2">Ghi chú</label>
+                        <textarea 
+                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
+                          placeholder="Nhập ghi chú nếu có"
                           rows="3"
                         ></textarea>
                       </div>
                       
-                      <div className="mb-5">
-                        <label className="flex items-center">
-                          <input
-                            type="checkbox"
-                            className="w-4 h-4 text-pink-600 rounded focus:ring-pink-500"
-                            required
-                          />
-                          <span className="ml-2 text-gray-700">Tôi đồng ý với các điều khoản và điều kiện</span>
-                        </label>
-                      </div>
-                      
-                      <motion.button
-                        type="submit"
-                        className="w-full py-3 text-white rounded-lg font-medium flex items-center justify-center group shadow-md gradient-button"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        <FaRegBell className="mr-2 text-lg" />
-                        Đăng ký tham gia
-                      </motion.button>
-                      
-                      <div className="mt-4 text-xs text-gray-500 flex items-start bg-gray-50 p-3 rounded-lg">
-                        <FaInfoCircle className="mr-2 mt-0.5 flex-shrink-0 text-gray-400" />
-                        <span>Thông tin của bạn sẽ được bảo mật và chỉ sử dụng cho mục đích đăng ký sự kiện.</span>
+                      <div className="pt-2">
+                        <PetButton 
+                          text="Đăng ký ngay"
+                          variant="gradient"
+                          size="lg"
+                          full={true}
+                          onClick={handleRegister}
+                          type="button"
+                          className="py-3"
+                        />
                       </div>
                     </form>
                   )}
@@ -451,41 +443,53 @@ const EventDetailPage = () => {
           </div>
         </div>
         
-        {/* Related events section */}
+        {/* Related events */}
         <div className="mb-8">
-          <h2 className="text-2xl font-bold mb-6 text-gray-800 section-title-gradient">
+          <h2 className="text-2xl font-bold mb-6 text-gray-800 inline-block relative after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:w-full after:h-[3px] after:bg-gradient-to-r after:from-pink-500 after:to-transparent after:rounded-md">
             Sự kiện liên quan
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {events.filter(e => e.id !== event.id).slice(0, 3).map((relatedEvent) => (
+            {events.filter(e => e.id !== event.id).slice(0, 3).map(relatedEvent => (
               <Link 
-                to={`/event/${relatedEvent.id}`} 
-                key={relatedEvent.id}
-                className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 flex flex-col h-full related-event-card"
+                key={relatedEvent.id} 
+                to={`/events/${relatedEvent.id}`}
+                className="bg-white rounded-xl overflow-hidden shadow-md hover:-translate-y-5 transition-transform duration-300 relative"
+                style={{
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}
               >
-                <div className="relative h-40 overflow-hidden">
+                <div 
+                  style={{
+                    content: '""',
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '5px',
+                    background: 'linear-gradient(to right, #ec4899, transparent)',
+                    transform: 'translateY(5px)',
+                    transition: 'transform 0.3s ease'
+                  }}
+                  className="hover:translate-y-0"
+                ></div>
+                <div className="h-48 overflow-hidden">
                   <img 
-                    src={getImageSrc()}
-                    alt={relatedEvent.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    src={getImageSrc(relatedEvent.id)} 
+                    alt={relatedEvent.title}
+                    className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-70" />
-                  
-                  <div className="absolute bottom-0 left-0 w-full p-3">
-                    <h3 className="text-lg font-bold text-white mb-1 line-clamp-1">{relatedEvent.title}</h3>
-                    <div className="flex items-center text-white/90 text-xs">
-                      <FaCalendarAlt className="mr-1 text-pink-300" />
-                      <span>{relatedEvent.date}</span>
-                    </div>
-                  </div>
                 </div>
-                
                 <div className="p-4">
-                  <p className="text-gray-600 text-sm line-clamp-2 mb-3">{relatedEvent.description}</p>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-pink-500 font-medium">Xem chi tiết</span>
-                    <span className="bg-pink-100 text-pink-700 px-2 py-0.5 rounded-full text-xs">{relatedEvent.status}</span>
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-xs font-semibold text-pink-600">{relatedEvent.date}</span>
+                    <span className="text-xs font-semibold text-purple-600">{relatedEvent.time}</span>
+                  </div>
+                  <h3 className="font-bold text-gray-800 mb-2 line-clamp-2">{relatedEvent.title}</h3>
+                  <div className="flex items-center text-gray-600 text-sm">
+                    <FaMapMarkerAlt className="mr-1 text-pink-500" />
+                    <span className="truncate">{relatedEvent.location}</span>
                   </div>
                 </div>
               </Link>
@@ -493,6 +497,36 @@ const EventDetailPage = () => {
           </div>
         </div>
       </div>
+      
+      {/* Add style tag for custom animations */}
+      <style jsx>{`
+        @keyframes pulse {
+          0% {
+            box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.4);
+          }
+          70% {
+            box-shadow: 0 0 0 10px rgba(236, 72, 153, 0);
+          }
+          100% {
+            box-shadow: 0 0 0 0 rgba(236, 72, 153, 0);
+          }
+        }
+        
+        @keyframes success-pulse {
+          0% {
+            box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4);
+            transform: scale(1);
+          }
+          70% {
+            box-shadow: 0 0 0 15px rgba(74, 222, 128, 0);
+            transform: scale(1.05);
+          }
+          100% {
+            box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+            transform: scale(1);
+          }
+        }
+      `}</style>
     </div>
   );
 };

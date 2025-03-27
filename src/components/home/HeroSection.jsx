@@ -4,6 +4,7 @@ import { FaPaw, FaHeart, FaCat, FaDog, FaChevronLeft, FaChevronRight } from 'rea
 import { motion, AnimatePresence } from 'framer-motion';
 import BokehEffect from '../utils/BokehEffect';
 import SeasonalThemeToggle from '../utils/SeasonalThemeToggle';
+import PetButton from '../buttons/PetButton';
 import './HeroSection.css';
 
 const HeroSection = () => {
@@ -94,7 +95,7 @@ const HeroSection = () => {
   return (
     <div className="hero-section relative apply-seasonal-theme">
       {/* Theme toggler */}
-      <div className="absolute top-4 right-4 z-30">
+      <div className="absolute right-4 z-30">
         <SeasonalThemeToggle onThemeChange={handleSeasonChange} initialTheme={currentSeason} />
       </div>
       
@@ -127,7 +128,7 @@ const HeroSection = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.5 }}
             >
-              Khám phá thế giới thú cưng dễ thương, đáng yêu và tìm người bạn đồng hành hoàn hảo tại Cilis Pet Shop.
+              Khám phá thế giới thú cưng dễ thương, đáng yêu và tìm người bạn đồng hành hoàn hảo tại Cilis Pet.
             </motion.p>
             
             <motion.div 
@@ -136,12 +137,26 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.5 }}
             >
-              <Link to="/cats" className="feminine-button feminine-button-pink fairy-light">
-                <FaCat className="text-lg" /> Xem Mèo
-              </Link>
-              <Link to="/dogs" className="feminine-button feminine-button-candy fairy-light">
-                <FaDog className="text-lg" /> Xem Chó
-              </Link>
+              <PetButton 
+                to="/pets?type=cat" 
+                text="Xem Mèo"
+                icon="paw"
+                variant="primary"
+                size="md"
+                className="!bg-purple-500 !text-white"
+              >
+                <FaCat className="text-lg" />
+              </PetButton>
+              <PetButton 
+                to="/pets" 
+                text="Xem Chó"
+                icon="paw"
+                variant="primary" 
+                size="md"
+                className="!bg-pink-500 !text-white feminine-button-candy fairy-light"
+              >
+                <FaDog className="text-lg" />
+              </PetButton>
             </motion.div>
             
             <motion.div 
@@ -168,19 +183,25 @@ const HeroSection = () => {
               transition={{ delay: 0.3, duration: 0.7 }}
             >
               {/* Nút điều hướng hình ảnh */}
-              <button 
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/70 backdrop-blur-sm h-10 w-10 rounded-full flex items-center justify-center z-10 hover:bg-white/90 transition-all shadow-md group"
+              <PetButton 
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/70 backdrop-blur-sm !p-0 h-10 w-10 shadow-md group"
                 onClick={handlePrevImage}
+                variant="light"
+                size="icon"
+                noEffects={true}
               >
                 <FaChevronLeft className="text-pink-500 group-hover:scale-110 transition-transform" />
-              </button>
+              </PetButton>
               
-              <button 
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/70 backdrop-blur-sm h-10 w-10 rounded-full flex items-center justify-center z-10 hover:bg-white/90 transition-all shadow-md group"
+              <PetButton 
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/70 backdrop-blur-sm !p-0 h-10 w-10 shadow-md group"
                 onClick={handleNextImage}
+                variant="light"
+                size="icon"
+                noEffects={true}
               >
                 <FaChevronRight className="text-pink-500 group-hover:scale-110 transition-transform" />
-              </button>
+              </PetButton>
               
               {/* Image slider với AnimatePresence để animate khi switching */}
               <AnimatePresence mode="wait">
@@ -200,14 +221,17 @@ const HeroSection = () => {
               {/* Indicators */}
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
                 {petImages.map((_, index) => (
-                  <button 
-                    key={index} 
-                    className={`w-2 h-2 rounded-full transition-all ${
+                  <PetButton 
+                    key={index}
+                    className={`w-2 h-2 !p-0 ${
                       index === currentImageIndex 
-                        ? 'bg-white w-6' 
+                        ? 'bg-white !w-6' 
                         : 'bg-white/50 hover:bg-white/80'
                     }`}
                     onClick={() => setCurrentImageIndex(index)}
+                    variant="light"
+                    size="icon"
+                    noEffects={true}
                   />
                 ))}
               </div>
@@ -218,20 +242,6 @@ const HeroSection = () => {
               </div>
             </motion.div>
             
-            {/* Decorative elements */}
-            <motion.div 
-              className="absolute -top-6 -right-6 w-20 h-20 bg-pink-100 rounded-full flex items-center justify-center z-10"
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.9, duration: 0.5, type: "spring" }}
-            >
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-              >
-                <FaPaw className="text-3xl text-pink-500" />
-              </motion.div>
-            </motion.div>
             
             <motion.div 
               className="absolute -bottom-6 -left-6 w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center"
@@ -251,7 +261,7 @@ const HeroSection = () => {
             <AnimatePresence mode="wait">
               <motion.div 
                 key={currentPet.id}
-                className="absolute top-4 left-6 w-full bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-lg max-w-xs feminine-card"
+                className="absolute top-6 left-12 w-full bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-lg max-w-xs feminine-card"
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 30 }}

@@ -13,6 +13,7 @@ import PetDetailPage from './pages/PetDetailPage';
 import EventDetailPage from './pages/EventDetailPage';
 import BlogPage from './pages/BlogPage';
 import BlogDetailPage from './pages/BlogDetailPage';
+import GestureDemo from './pages/GestureDemo';
 import ScrollToTop from './components/utils/ScrollToTop';
 import Effects from './components/utils/Effects';
 import './App.css';
@@ -43,6 +44,7 @@ const AnimatedRoutes = () => {
           <Route path="/event/:id" element={<EventDetailPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:id" element={<BlogDetailPage />} />
+          <Route path="/gesture-demo" element={<GestureDemo />} />
           {/* Add more routes as needed */}
         </Routes>
       </CSSTransition>

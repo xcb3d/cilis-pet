@@ -4,6 +4,7 @@ import HeroSection from '../components/home/HeroSection';
 import FeaturedPets from '../components/home/FeaturedPets';
 import { Link } from 'react-router-dom';
 import { FaPaw, FaCalendarAlt, FaHandHoldingHeart, FaHeart, FaStar, FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
+import PetButton from '../components/buttons/PetButton';
 
 const HomePage = () => {
   const [visibleTestimonial, setVisibleTestimonial] = useState(0);
@@ -186,20 +187,16 @@ const HomePage = () => {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="text-center mt-12"
             >
-              <motion.button
-                className="btn-cute px-8 py-3 rounded-full"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <PetButton
+                text="Tìm hiểu thêm về nhận nuôi"
+                icon="paw"
+                size="lg"
+                variant="primary"
                 onClick={() => {
                   createConfetti();
                   window.location.href = '/adopt';
                 }}
-              >
-                <span className="flex items-center gap-2">
-                  <FaPaw className="text-sm animate-heartbeat" />
-                  <span>Tìm hiểu thêm về nhận nuôi</span>
-                </span>
-              </motion.button>
+              />
             </motion.div>
           </div>
         </section>
@@ -334,7 +331,7 @@ const HomePage = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
-                  className="text-3xl md:text-4xl font-bold mb-6 text-gray-800 mx-auto relative inline-block"
+                  className="text-3xl md:text-4xl font-bold mb-4 text-gray-800 mx-auto relative inline-block"
                 >
                   <span className="relative z-10">Bạn đã sẵn sàng <span className="text-pink-500">mang lại niềm vui</span> cho một bé cưng?</span>
                   <span className="absolute left-0 bottom-1 w-full h-3 bg-pink-100 rounded-lg -z-0"></span>
@@ -359,31 +356,30 @@ const HomePage = () => {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   className="flex flex-col sm:flex-row gap-4 justify-center"
                 >
-                  <motion.div 
-                    whileHover={{ scale: 1.05 }} 
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Link
-                      to="/pets"
-                      className="bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-8 py-4 rounded-full font-medium transition duration-300 flex items-center justify-center gap-2 shadow-lg"
-                    >
-                      <FaPaw className="text-sm" />
-                      <span>Xem thú cưng</span>
-                    </Link>
-                  </motion.div>
+                  <PetButton 
+                    text="Xem thú cưng"
+                    icon="paw"
+                    to="/pets"
+                    variant="primary"
+                    size="lg"
+                  />
 
-                  <motion.div 
-                    whileHover={{ scale: 1.05 }} 
-                    whileTap={{ scale: 0.95 }}
+                  <PetButton
+                    text="Ủng hộ"
+                    icon="heart"
+                    to="/donate"
+                    variant="outline"
+                    size="lg"
+                  />
+
+                  <PetButton 
+                    text="Trải nghiệm tương tác mới"
+                    to="/gesture-demo"
+                    variant="gradient"
+                    size="lg"
                   >
-                    <Link
-                      to="/donate"
-                      className="bg-white hover:bg-gray-50 text-pink-500 border-2 border-pink-500 px-8 py-4 rounded-full font-medium transition duration-300 flex items-center justify-center gap-2 shadow-md"
-                    >
-                      <FaHandHoldingHeart className="text-sm" />
-                      <span>Ủng hộ</span>
-                    </Link>
-                  </motion.div>
+                    <span role="img" aria-label="sparkles">✨</span>
+                  </PetButton>
                 </motion.div>
               </div>
               
@@ -423,7 +419,7 @@ const HomePage = () => {
                     </p>
                     <Link 
                       to="/blog" 
-                      className="inline-block px-6 py-3 bg-gradient-to-r from-pink-500 to-pink-600 text-white font-medium rounded-full transition duration-300 hover:shadow-lg"
+                      className="inline-block px-6 py-3 bg-gradient-to-r from-pink-500 to-pink-600 text-white font-medium rounded-full transition duration-300 hover:shadow-lg hover:text-white"
                     >
                       Đọc ngay
                     </Link>

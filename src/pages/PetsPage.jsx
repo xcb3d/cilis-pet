@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import PetCard from '../components/pets/PetCard';
 import petsData from '../data/petsData';
 import { FaDog, FaCat, FaSearch, FaFilter, FaMapMarkerAlt } from 'react-icons/fa';
+import PetButton from '../components/buttons/PetButton';
 
 const PetsPage = () => {
   const [pets, setPets] = useState([]);
@@ -95,12 +96,18 @@ const PetsPage = () => {
               <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             </form>
             
-            <button 
-              onClick={() => setFilterOpen(!filterOpen)}
-              className="flex items-center gap-2 px-4 py-2 bg-pink-100 text-pink-600 rounded-lg hover:bg-pink-200 transition duration-300 md:w-auto"
-            >
-              <FaFilter /> {filterOpen ? 'Ẩn bộ lọc' : 'Hiện bộ lọc'}
-            </button>
+            <div className="flex items-center gap-2">
+              <PetButton 
+                onClick={() => setFilterOpen(!filterOpen)}
+                text={filterOpen ? 'Ẩn bộ lọc' : 'Hiện bộ lọc'}
+                icon="search"
+                variant="light"
+                size="md"
+                className="bg-pink-100 text-pink-600 hover:bg-pink-200"
+              >
+                <FaFilter />
+              </PetButton>
+            </div>
           </div>
           
           {/* Filter Options */}
@@ -116,33 +123,41 @@ const PetsPage = () => {
                   Loại thú cưng
                 </label>
                 <div className="flex gap-4">
-                  <button
-                    className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg border transition duration-300 ${
-                      filters.type === 'Chó' 
-                        ? 'bg-blue-100 border-blue-300 text-blue-700' 
-                        : 'border-gray-300 hover:bg-gray-100'
-                    }`}
+                  <PetButton
+                    text="Chó"
+                    variant={filters.type === 'Chó' ? 'info' : 'light'}
+                    size="md"
+                    full={true}
+                    noEffects={true}
+                    className={filters.type === 'Chó' 
+                      ? 'bg-blue-100 border-blue-300 text-blue-700' 
+                      : 'border border-gray-300 hover:bg-gray-100'
+                    }
                     onClick={() => setFilters(prev => ({
                       ...prev,
                       type: prev.type === 'Chó' ? '' : 'Chó'
                     }))}
                   >
-                    <FaDog /> Chó
-                  </button>
+                    <FaDog />
+                  </PetButton>
                   
-                  <button
-                    className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg border transition duration-300 ${
-                      filters.type === 'Mèo' 
-                        ? 'bg-purple-100 border-purple-300 text-purple-700' 
-                        : 'border-gray-300 hover:bg-gray-100'
-                    }`}
+                  <PetButton
+                    text="Mèo"
+                    variant={filters.type === 'Mèo' ? 'secondary' : 'light'}
+                    size="md"
+                    full={true}
+                    noEffects={true}
+                    className={filters.type === 'Mèo' 
+                      ? 'bg-purple-100 border-purple-300 text-purple-700' 
+                      : 'border border-gray-300 hover:bg-gray-100'
+                    }
                     onClick={() => setFilters(prev => ({
                       ...prev,
                       type: prev.type === 'Mèo' ? '' : 'Mèo'
                     }))}
                   >
-                    <FaCat /> Mèo
-                  </button>
+                    <FaCat />
+                  </PetButton>
                 </div>
               </div>
               
@@ -164,12 +179,14 @@ const PetsPage = () => {
               </div>
               
               <div className="flex items-end">
-                <button
+                <PetButton
+                  text="Xóa bộ lọc"
+                  variant="light"
+                  size="md"
+                  full={true}
                   onClick={resetFilters}
-                  className="w-full px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition duration-300"
-                >
-                  Xóa bộ lọc
-                </button>
+                  className="bg-gray-200 text-gray-700 hover:bg-gray-300"
+                />
               </div>
             </motion.div>
           )}
@@ -220,12 +237,12 @@ const PetsPage = () => {
               <p className="text-gray-600 mb-6">
                 Không có thú cưng nào phù hợp với bộ lọc của bạn. Hãy thử các bộ lọc khác.
               </p>
-              <button 
+              <PetButton 
+                text="Xóa bộ lọc"
+                variant="primary"
+                size="md"
                 onClick={resetFilters}
-                className="px-6 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition duration-300"
-              >
-                Xóa bộ lọc
-              </button>
+              />
             </div>
           )}
         </div>

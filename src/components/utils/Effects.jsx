@@ -15,6 +15,7 @@ const Effects = () => {
     createContainer('sticker-container');
     createContainer('weather-effect-container');
     createContainer('global-bokeh-container');
+    createContainer('cursor-trail-container');
     
     // Add bokeh and fairy light effects to global elements
     addGlobalEffects();
