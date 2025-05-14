@@ -5,6 +5,9 @@ import FeaturedPets from '../components/home/FeaturedPets';
 import { Link } from 'react-router-dom';
 import { FaPaw, FaCalendarAlt, FaHandHoldingHeart, FaHeart, FaStar, FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
 import PetButton from '../components/buttons/PetButton';
+import { useConfetti } from '../hooks/useConfetti';
+import { images } from '../utils/imageImports';
+import { useAnimation } from 'framer-motion';
 
 const HomePage = () => {
   const [visibleTestimonial, setVisibleTestimonial] = useState(0);
@@ -429,9 +432,13 @@ const HomePage = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 h-full">
                     <div className="relative group overflow-hidden">
                       <img 
-                        src="https://images.unsplash.com/photo-1516734212186-b967eb982183" 
-                        alt="Huấn luyện thú cưng" 
+                        src={images.blog.dogIntelligenceGames} 
+                        alt="Mẹo huấn luyện chó con" 
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = "https://images.unsplash.com/photo-1516734212186-b967eb982183?auto=format&fit=crop&w=800&q=80";
+                        }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
                         <span className="text-white font-medium">Mẹo huấn luyện chó con</span>
@@ -439,9 +446,13 @@ const HomePage = () => {
                     </div>
                     <div className="relative group overflow-hidden">
                       <img 
-                        src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba" 
+                        src={images.blog.puppyNutrition} 
                         alt="Dinh dưỡng cho mèo" 
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80";
+                        }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
                         <span className="text-white font-medium">Dinh dưỡng cho mèo</span>

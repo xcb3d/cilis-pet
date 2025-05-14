@@ -1,102 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaPaw, FaHeart, FaCat, FaDog, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import { motion, AnimatePresence } from 'framer-motion';
+import { FaCat, FaDog } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { useTheme } from '../../hooks/useTheme';
+import { PetCarousel } from './carousel';
 import BokehEffect from '../utils/BokehEffect';
 import SeasonalThemeToggle from '../utils/SeasonalThemeToggle';
 import PetButton from '../buttons/PetButton';
+import Button from '../common/Button';
 import './HeroSection.css';
 
+/**
+ * Component hiển thị phần hero của trang chủ
+ */
 const HeroSection = () => {
-  const [currentSeason, setCurrentSeason] = useState('spring');
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  
-  // Mảng chứa các hình ảnh và thông tin tương ứng
-  const petImages = [
-    {
-      id: 1,
-      src: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1686&q=80",
-      alt: "Mèo xinh đẹp",
-      petInfo: {
-        name: "Mèo Munchkin",
-        age: "1 tuổi",
-        gender: "Cái"
-      }
-    },
-    {
-      id: 2,
-      src: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80",
-      alt: "Chó Husky đáng yêu",
-      petInfo: {
-        name: "Husky Siberian",
-        age: "2 tuổi",
-        gender: "Đực"
-      }
-    },
-    {
-      id: 3,
-      src: "https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1736&q=80",
-      alt: "Mèo Bengal",
-      petInfo: {
-        name: "Mèo Bengal",
-        age: "1.5 tuổi",
-        gender: "Đực"
-      }
-    },
-    {
-      id: 4,
-      src: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
-      alt: "Chó Golden Retriever",
-      petInfo: {
-        name: "Golden Retriever",
-        age: "3 tuổi",
-        gender: "Đực"
-      }
-    }
-  ];
-  
-  // Xử lý chuyển đổi hình ảnh
-  const handlePrevImage = () => {
-    setCurrentImageIndex(prev => (prev === 0 ? petImages.length - 1 : prev - 1));
-  };
-  
-  const handleNextImage = () => {
-    setCurrentImageIndex(prev => (prev === petImages.length - 1 ? 0 : prev + 1));
-  };
-  
-  // Tự động chuyển ảnh mỗi 8 giây
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      handleNextImage();
-    }, 8000);
-    
-    return () => clearInterval(intervalId);
-  }, []);
-  
-  // Xử lý khi thay đổi mùa
-  const handleSeasonChange = (season) => {
-    setCurrentSeason(season);
-    // Thêm class theme vào hero section
-    document.querySelector('.hero-section').className = document.querySelector('.hero-section').className
-      .replace(/feminine-theme-\w+/g, '')
-      .trim();
-    document.querySelector('.hero-section').classList.add(`feminine-theme-${season}`);
-  };
-  
-  useEffect(() => {
-    // Khởi tạo theme khi component mount
-    const savedTheme = localStorage.getItem('cilispet-theme') || 'spring';
-    handleSeasonChange(savedTheme);
-  }, []);
-  
-  // Lấy thông tin pet hiện tại
-  const currentPet = petImages[currentImageIndex];
+  const { theme, updateTheme } = useTheme('spring', 'cilispet-theme');
   
   return (
-    <div className="hero-section relative apply-seasonal-theme">
+    <div className={`hero-section relative apply-seasonal-theme feminine-theme-${theme}`}>
       {/* Theme toggler */}
       <div className="absolute right-4 z-30">
-        <SeasonalThemeToggle onThemeChange={handleSeasonChange} initialTheme={currentSeason} />
+        <SeasonalThemeToggle onThemeChange={updateTheme} initialTheme={theme} />
       </div>
       
       {/* Bokeh effect */}
@@ -104,6 +28,7 @@ const HeroSection = () => {
       
       <div className="container mx-auto px-4 py-12 md:py-20">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+          {/* Left column - Text content */}
           <div className="md:w-1/2 text-center md:text-left">
             <motion.h1 
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-pink-600 hero-title glitter-text"
@@ -137,16 +62,18 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.5 }}
             >
-              <PetButton 
+              {/* Using the new Button component */}
+              <Button 
                 to="/pets?type=cat" 
-                text="Xem Mèo"
-                icon="paw"
                 variant="primary"
-                size="md"
                 className="!bg-purple-500 !text-white"
               >
-                <FaCat className="text-lg" />
-              </PetButton>
+                <Button.Icon name="paw" />
+                <Button.Text>Xem Mèo</Button.Text>
+                <FaCat className="ml-1 text-lg" />
+              </Button>
+              
+              {/* Using the existing PetButton for backward compatibility */}
               <PetButton 
                 to="/pets" 
                 text="Xem Chó"
@@ -175,111 +102,20 @@ const HeroSection = () => {
               </span>
             </motion.div>
           </div>
+          
+          {/* Right column - Pet carousel */}
           <div className="md:w-1/2 relative">
             <motion.div 
               className="home-hero-image rounded-2xl overflow-hidden shadow-2xl glow-pink relative"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3, duration: 0.7 }}
+              style={{ height: '450px' }}
             >
-              {/* Nút điều hướng hình ảnh */}
-              <PetButton 
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/70 backdrop-blur-sm !p-0 h-10 w-10 shadow-md group"
-                onClick={handlePrevImage}
-                variant="light"
-                size="icon"
-                noEffects={true}
-              >
-                <FaChevronLeft className="text-pink-500 group-hover:scale-110 transition-transform" />
-              </PetButton>
-              
-              <PetButton 
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/70 backdrop-blur-sm !p-0 h-10 w-10 shadow-md group"
-                onClick={handleNextImage}
-                variant="light"
-                size="icon"
-                noEffects={true}
-              >
-                <FaChevronRight className="text-pink-500 group-hover:scale-110 transition-transform" />
-              </PetButton>
-              
-              {/* Image slider với AnimatePresence để animate khi switching */}
-              <AnimatePresence mode="wait">
-                <motion.img 
-                  key={currentPet.id}
-                  src={currentPet.src}
-                  alt={currentPet.alt}
-                  className="w-full h-[400px] object-cover rounded-2xl"
-                  data-effect="cinemagraph"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                />
-              </AnimatePresence>
-              
-              {/* Indicators */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                {petImages.map((_, index) => (
-                  <PetButton 
-                    key={index}
-                    className={`w-2 h-2 !p-0 ${
-                      index === currentImageIndex 
-                        ? 'bg-white !w-6' 
-                        : 'bg-white/50 hover:bg-white/80'
-                    }`}
-                    onClick={() => setCurrentImageIndex(index)}
-                    variant="light"
-                    size="icon"
-                    noEffects={true}
-                  />
-                ))}
-              </div>
-              
-              {/* Overlay với hiệu ứng bokeh nhỏ */}
-              <div className="absolute inset-0 pointer-events-none">
-                <BokehEffect count={10} opacity={0.15} maxSize={40} minSize={10} />
-              </div>
+              <PetCarousel />
             </motion.div>
-            
-            
-            <motion.div 
-              className="absolute -bottom-6 -left-6 w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center"
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1.1, duration: 0.5, type: "spring" }}
-            >
-              <motion.div
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <FaHeart className="text-3xl text-purple-500" />
-              </motion.div>
-            </motion.div>
-            
-            {/* Thông tin pet hiện tại */}
-            <AnimatePresence mode="wait">
-              <motion.div 
-                key={currentPet.id}
-                className="absolute top-6 left-12 w-full bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-lg max-w-xs feminine-card"
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 30 }}
-                transition={{ delay: 0.2, duration: 0.3 }}
-              >
-                <h3 className="font-semibold mb-1 heading-cute">{currentPet.petInfo.name}</h3>
-                <p className="text-sm text-gray-600">Tuổi: {currentPet.petInfo.age} • Giới tính: {currentPet.petInfo.gender}</p>
-              </motion.div>
-            </AnimatePresence>
           </div>
         </div>
-      </div>
-      
-      {/* Wave decoration */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full h-auto">
-          <path fill="#FFF1F5" fillOpacity="1" d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,133.3C672,117,768,139,864,165.3C960,192,1056,224,1152,208C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-        </svg>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { AppProvider } from './context/AppContext';
 import Layout from './components/layout/Layout';
 import HomePage from './pages/HomePage';
 import PetsPage from './pages/PetsPage';
@@ -16,6 +17,7 @@ import BlogDetailPage from './pages/BlogDetailPage';
 import GestureDemo from './pages/GestureDemo';
 import ScrollToTop from './components/utils/ScrollToTop';
 import Effects from './components/utils/Effects';
+import Notifications from './components/common/Notifications';
 import './App.css';
 import './index.css';
 
@@ -54,13 +56,16 @@ const AnimatedRoutes = () => {
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <Effects />
-      <Layout>
-        <AnimatedRoutes />
-      </Layout>
-    </Router>
+    <AppProvider>
+      <Router>
+        <ScrollToTop />
+        <Effects />
+        <Notifications />
+        <Layout>
+          <AnimatedRoutes />
+        </Layout>
+      </Router>
+    </AppProvider>
   );
 }
 

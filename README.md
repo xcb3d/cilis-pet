@@ -1,6 +1,42 @@
-# Cilis Pet - Nền tảng nhận nuôi thú cưng
+# Cilis Pet
 
-Cilis Pet là một nền tảng trực tuyến giúp kết nối những thú cưng đang cần mái ấm mới với những người yêu thích động vật. Với giao diện thân thiện và nhiều tính năng tương tác, Cilis Pet mang đến trải nghiệm mượt mà, vui nhộn và dễ sử dụng.
+An interactive web platform connecting adoptable pets with loving homes.
+
+## Overview
+
+Cilis Pet streamlines the pet adoption process through an intuitive interface where users can browse, search, and connect with pets needing new homes. The platform features engaging UI elements and smooth animations to create a delightful user experience.
+
+## Key Features
+
+- **Pet Discovery**: Browse and filter pets by species, age, gender, size, and more
+- **Detailed Pet Profiles**: View comprehensive information including photos, descriptions, personality traits, and care requirements
+- **Adoption Workflow**: Step-by-step guided process for adopting pets
+- **Interactive UI**: Custom cursor effects, draggable pet cards, animated galleries, and 3D buttons
+- **User Management**: Registration, login, and profile management
+
+## Technology Stack
+
+- **Frontend**: React, Vite
+- **Styling**: Tailwind CSS
+- **Animation**: Framer Motion, @use-gesture/react
+- **Routing**: React Router
+- **UI Components**: React Icons, HeroIcons
+
+## Getting Started
+
+```bash
+# Clone repository
+git clone https://github.com/yourusername/cilis-pet.git
+cd cilis-pet
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+Visit `http://localhost:5173` to view the application.
 
 ## Tính năng chính
 
@@ -25,16 +61,6 @@ Cilis Pet là một nền tảng trực tuyến giúp kết nối những thú c
 - **PetGallery**: Thư viện ảnh thú cưng với hiệu ứng cuộn ngang mượt mà
 - **AdoptButton3D**: Nút nhận nuôi với hiệu ứng 3D và sparkle khi hover
 - **PetGestureCard**: Thẻ thú cưng với hiệu ứng parallax khi di chuột
-
-## Công nghệ sử dụng
-
-- **React**: Thư viện JavaScript cho UI
-- **Vite**: Build tool hiện đại
-- **Framer Motion**: Thư viện animation
-- **use-gesture**: Thư viện quản lý cử chỉ người dùng (drag, swipe, pinch...)
-- **Tailwind CSS**: Framework CSS utility-first
-- **React Router**: Thư viện định tuyến
-- **React Icons**: Bộ icon
 
 ## Cài đặt và chạy
 
