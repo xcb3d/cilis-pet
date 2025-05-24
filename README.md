@@ -2,6 +2,10 @@
 
 An interactive web platform connecting adoptable pets with loving homes.
 
+## Live Preview
+
+[Cilis Pet Preview](https://cilis-pet.vercel.app/)
+
 ## Overview
 
 Cilis Pet streamlines the pet adoption process through an intuitive interface where users can browse, search, and connect with pets needing new homes. The platform features engaging UI elements and smooth animations to create a delightful user experience.
