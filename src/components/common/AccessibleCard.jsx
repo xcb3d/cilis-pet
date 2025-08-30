@@ -27,7 +27,7 @@ const AccessibleCard = ({
     'aria-describedby': description ? `${props.id}-desc` : undefined,
     onClick: onClick,
     href: href,
-    onKeyDown: isInteractive ? (e) => {
+    onKeyDown: isInteractive && Component === 'div' ? (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         onClick?.(e);
