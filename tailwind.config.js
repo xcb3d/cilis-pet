@@ -4,6 +4,14 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  safelist: [
+    // Dynamic classes used in components
+    'text-pink-300', 'text-pink-500', 'text-pink-600',
+    'text-mint-300', 'text-mint-500', 'text-mint-600',
+    'bg-pink-400', 'bg-mint-400', 'bg-purple-400',
+    'from-pink-500', 'to-purple-500',
+    // Add other dynamic classes as needed
+  ],
   theme: {
     extend: {
       colors: {
