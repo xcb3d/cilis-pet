@@ -15,11 +15,13 @@ export const createPawPrintTrail = (containerId = 'root') => {
   const delay = 300; // Time between prints in ms
   
   const handleMouseMove = (e) => {
+    console.log("ddd")
     console.log("conflict1")
     const currentTime = Date.now();
     if (currentTime - lastPrintTime < delay) return;
     
     lastPrintTime = currentTime;
+    console.log("conflict2");
     
     // Create paw print element
     const pawPrint = document.createElement('div');
