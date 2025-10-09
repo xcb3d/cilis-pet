@@ -16,6 +16,7 @@ export const createPawPrintTrail = (containerId = 'root') => {
   
   const handleMouseMove = (e) => {
     const currentTime = Date.now();
+    console.log("ddd")
     if (currentTime - lastPrintTime < delay) return;
     
     lastPrintTime = currentTime;
