@@ -19,6 +19,7 @@ export const createPawPrintTrail = (containerId = 'root') => {
     if (currentTime - lastPrintTime < delay) return;
     
     lastPrintTime = currentTime;
+    console.log("conflict2");
     
     // Create paw print element
     const pawPrint = document.createElement('div');
